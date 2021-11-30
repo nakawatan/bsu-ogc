@@ -1,0 +1,37 @@
+tbody tr {
+    text-align: center;
+}
+
+.table-customer-information tbody tr{
+    text-align: left;
+}
+tbody td {
+    vertical-align: middle!important;
+}
+.customer-icon {
+    font-size: 10rem;
+    text-align: center;
+}
+.d-no {
+    color: #f50001;
+}
+.d-yes {
+    color: #22bb33;
+}
+.box-status{
+	color: #fff;
+	display: inline-block;
+	padding: 5px 10px;
+	border-radius: 3px;
+	text-transform: uppercase;
+	font-size: 11px;
+}
+.box-status.pending{
+	background-color: #ffc107;
+}
+.box-status.reject{
+	background-color: #dc3545;
+}
+.box-status.approved{
+	background-color: #28a745;
+}
