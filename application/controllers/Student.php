@@ -50,6 +50,8 @@ class Student extends MY_Controller
 		$data['ja_receipt_number'] = isset($data['request_cgmc_job_application']) ? $data['request_cgmc_job_application']->receipt_number : '';
 		$data['ja_tor_file'] = isset($data['request_cgmc_job_application']) ? $data['request_cgmc_job_application']->tor_file : '';
 		$data['ja_cgmc_file'] = isset($data['request_cgmc_job_application']) ? $data['request_cgmc_job_application']->cgmc_file : '';
+		$data['ja_cgmc_form_file'] = isset($data['request_cgmc_job_application']) ? $data['request_cgmc_job_application']->cgmc_form_file : '';
+		$data['ja_cgmc_form_status'] = isset($data['request_cgmc_job_application']) ? $data['request_cgmc_job_application']->cgmc_form_status : '';
 
 
 		$data['request_cgmc_scholarship'] = $this->model->get_request_cgmc_scholarship($data['student_id']);
@@ -69,6 +71,9 @@ class Student extends MY_Controller
 		$data['transferee_exit_interview_form_file'] = isset($data['request_cgmc_transferee']) ? $data['request_cgmc_transferee']->exit_interview_form_file : '';
 		$data['transferee_exit_interview_form_status'] = isset($data['request_cgmc_transferee']) ? $data['request_cgmc_transferee']->exit_interview_form_status : '';
 		$data['transferee_cgmc_file'] = isset($data['request_cgmc_transferee']) ? $data['request_cgmc_transferee']->cgmc_file : '';
+		$data['transferee_cgmc_form_file'] = isset($data['request_cgmc_transferee']) ? $data['request_cgmc_transferee']->cgmc_form_file : '';
+		$data['transferee_cgmc_form_status'] = isset($data['request_cgmc_transferee']) ? $data['request_cgmc_transferee']->cgmc_form_status : '';
+		
 
 		$data['request_cgmc_tosa_app'] = $this->model->get_request_cgmc_tosa_app($data['student_id']);
 		$data['tosa_app_receipt_number'] = isset($data['request_cgmc_tosa_app']) ? $data['request_cgmc_tosa_app']->receipt_number : '';
@@ -80,11 +85,17 @@ class Student extends MY_Controller
 		$data['tosa_app_proof_of_app_of_ha_file'] = isset($data['request_cgmc_tosa_app']) ? $data['request_cgmc_tosa_app']->proof_of_app_of_ha_file : '';
 		$data['tosa_app_proof_of_app_of_ha_status'] = isset($data['request_cgmc_tosa_app']) ? $data['request_cgmc_tosa_app']->proof_of_app_of_ha_status : '';
 		$data['tosa_app_cgmc_file'] = isset($data['request_cgmc_tosa_app']) ? $data['request_cgmc_tosa_app']->cgmc_file : '';
+		$data['tosa_app_cgmc_form_file'] = isset($data['request_cgmc_tosa_app']) ? $data['request_cgmc_tosa_app']->cgmc_form_file : '';
+		$data['tosa_app_cgmc_form_status'] = isset($data['request_cgmc_tosa_app']) ? $data['request_cgmc_tosa_app']->cgmc_form_status : '';
+		
 
 		$data['request_cgmc_rnu_rep'] = $this->model->get_request_cgmc_rnu_rep($data['student_id']);
 		$data['rnu_rep_registration_form_file'] = isset($data['request_cgmc_rnu_rep']) ? $data['request_cgmc_rnu_rep']->registration_form_file : '';
 		$data['rnu_rep_registration_form_status'] = isset($data['request_cgmc_rnu_rep']) ? $data['request_cgmc_rnu_rep']->registration_form_status : '';
 		$data['rnu_rep_cgmc_file'] = isset($data['request_cgmc_rnu_rep']) ? $data['request_cgmc_rnu_rep']->cgmc_file : '';
+		$data['rnu_rep_cgmc_form_file'] = isset($data['request_cgmc_rnu_rep']) ? $data['request_cgmc_rnu_rep']->cgmc_form_file : '';
+		$data['rnu_rep_cgmc_form_status'] = isset($data['request_cgmc_rnu_rep']) ? $data['request_cgmc_rnu_rep']->cgmc_form_status : '';
+		
 
 		$data['appointment_group_counseling'] = $this->model->get_appointment($data['student_id'], 'group_counseling');
 		$data['default_available_slots']	= $this->model->count_gc_appointment(date('Y-m-d'));
@@ -92,6 +103,11 @@ class Student extends MY_Controller
 		$data['appointment_exit_interview'] = $this->model->get_appointment($data['student_id'], 'exit_interview');
 		$data['appointment_initial_interview'] = $this->model->get_appointment($data['student_id'], 'initial_interview');
 		$data['appointment_post_interview'] = $this->model->get_appointment($data['student_id'], 'post_interview');
+
+		$data['image'] = $user['image'];
+		if ($data['image'] == "") {
+			$data['image'] = ASSETS . 'profiles/test.png';
+		}
 
 
 		if(!$user){
@@ -215,22 +231,28 @@ class Student extends MY_Controller
 		$output = '{"error" : true}';
 		$no_dup = $this->model->check_duplicate_cgmc_job_application($user['student_id']);
 
-		$this->form_validation->set_rules('receipt-number', 'Official Receipt Number', 'trim|required');
+		// $this->form_validation->set_rules('pop-job-application', 'Proof of Payment', 'trim|required');
+		$data['pop-job-application'] = $this->validate_file('pop-job-application');
 		$data['tor'] = $this->validate_file('tor');
+		$data['cogmc-form'] = $this->validate_file('cogmc-form');
 
-		if ($this->form_validation->run() && $data['tor']) {
+		if ($data['pop-job-application'] && $data['tor']) {
 			if($no_dup){
-				$receipt_number = antiHack($this->input->post('receipt-number'));
+				// $receipt_number = antiHack($this->input->post('receipt-number'));
 				$user_folder = encodeFolder($user['student_id']);
 				$directory = 'assets/uploads/docs/'.$user_folder.'/';
 		        $upload_tor = $this->media_upload($directory, 'tor');
+				$upload_pop = $this->media_upload($directory, 'pop-job-application');
+				$cgcm_form = $this->media_upload($directory, 'cogmc-form');
 
 		        $new_cgcm = [
 		        	'student_id' => $user['student_id'],
-		        	'receipt_number' => $receipt_number,
+		        	'receipt_number' => $upload_pop['file_name'],
 		            'tor_file' =>  $upload_tor['file_name'],
 		            'receipt_number_status' => 'pending',
-		            'tor_status' => 'pending'
+		            'tor_status' => 'pending',
+					'cgmc_form_file' =>  $cgcm_form['file_name'],
+		            'cgmc_form_status' => 'pending',
 		        ];
 
 		        $this->model->store_request_cgmc_job_application($new_cgcm);
@@ -310,23 +332,25 @@ class Student extends MY_Controller
 		$output = '{"error" : true}';
 		$no_dup = $this->model->check_duplicate_cgmc_scholarship($user['student_id']);
 
-		$this->form_validation->set_rules('ss_receipt_number', 'Official Receipt Number', 'trim|required');
+		// $this->form_validation->set_rules('ss_receipt_number', 'Official Receipt Number', 'trim|required');
+		$data['pop-scholarship'] = $this->validate_file('pop-scholarship');
 		$data['ss_application_form_file'] = $this->validate_file('ss_application_form_file');
 		$data['ss_registration_form_file'] = $this->validate_file('ss_registration_form_file');
 		$data['ss_grade_from_prev_file'] = $this->validate_file('ss_grade_from_prev_file');
 
-		if ($this->form_validation->run() && $data['ss_application_form_file'] && $data['ss_application_form_file'] && $data['ss_application_form_file']) {
+		if ($data['pop-scholarship'] && $data['ss_application_form_file'] && $data['ss_application_form_file'] && $data['ss_application_form_file']) {
 			if($no_dup){
-				$receipt_number = antiHack($this->input->post('ss_receipt_number'));
+				// $receipt_number = antiHack($this->input->post('ss_receipt_number'));
 				$user_folder = encodeFolder($user['student_id']);
 				$directory = 'assets/uploads/docs/'.$user_folder.'/';
 		        $upload_application_form = $this->media_upload($directory, 'ss_application_form_file');
 		        $upload_registration_form = $this->media_upload($directory, 'ss_registration_form_file');
 		        $upload_grade_from_prev = $this->media_upload($directory, 'ss_grade_from_prev_file');
+				$upload_pop = $this->media_upload($directory, 'pop-scholarship');
 
 		        $new_cgcm = [
 		        	'student_id' => $user['student_id'],
-		        	'receipt_number' => $receipt_number,
+		        	'receipt_number' => $upload_pop['file_name'],
 		            'receipt_number_status' => 'pending',
 		            'application_form_file' =>  $upload_application_form['file_name'],
 		            'application_form_status' => 'pending',
@@ -437,22 +461,28 @@ class Student extends MY_Controller
 		$output = '{"error" : true}';
 		$no_dup = $this->model->check_duplicate_cgmc_transferee($user['student_id']);
 
-		$this->form_validation->set_rules('transferee_receipt_number', 'Official Receipt Number', 'trim|required');
+		// $this->form_validation->set_rules('transferee_receipt_number', 'Official Receipt Number', 'trim|required');
+		$data['pop-transfer'] = $this->validate_file('pop-transfer');
 		$data['transferee_exit_interview_form_file'] = $this->validate_file('transferee_exit_interview_form_file');
+		$data['cogmc-form'] = $this->validate_file('cogmc-form');
 
-		if ($this->form_validation->run() && $data['transferee_exit_interview_form_file']) {
+		if ($data['pop-transfer'] && $data['transferee_exit_interview_form_file'] && $data['cogmc-form']) {
 			if($no_dup){
-				$receipt_number = antiHack($this->input->post('transferee_receipt_number'));
+				// $receipt_number = antiHack($this->input->post('transferee_receipt_number'));
 				$user_folder = encodeFolder($user['student_id']);
 				$directory = 'assets/uploads/docs/'.$user_folder.'/';
 		        $upload_form = $this->media_upload($directory, 'transferee_exit_interview_form_file');
+				$upload_pop = $this->media_upload($directory, 'pop-transfer');
+				$upload_cgmc = $this->media_upload($directory, 'cogmc-form');
 
 		        $new_cgcm = [
 		        	'student_id' => $user['student_id'],
-		        	'receipt_number' => $receipt_number,
+		        	'receipt_number' => $upload_pop['file_name'],
 		            'receipt_number_status' => 'pending',
 		            'exit_interview_form_file' =>  $upload_form['file_name'],
-		            'exit_interview_form_status' => 'pending'
+		            'exit_interview_form_status' => 'pending',
+					'cgmc_form_file' =>  $upload_cgmc['file_name'],
+		            'cgmc_form_status' => 'pending'
 		        ];
 
 		        $this->model->store_request_cgmc_transferee($new_cgcm);
@@ -533,12 +563,14 @@ class Student extends MY_Controller
 		$output = '{"error" : true}';
 		$no_dup = $this->model->check_duplicate_cgmc_tosa_app($user['student_id']);
 
-		$this->form_validation->set_rules('tosa_app_receipt_number', 'Official Receipt Number', 'trim|required');
+		// $this->form_validation->set_rules('tosa_app_receipt_number', 'Official Receipt Number', 'trim|required');
+		$data['pop-tosa'] = $this->validate_file('pop-tosa');
 		$data['tosa_app_form_of_scholarship_file'] = $this->validate_file('tosa_app_form_of_scholarship_file');
 		$data['tosa_app_registration_file'] = $this->validate_file('tosa_app_registration_file');
 		$data['tosa_app_proof_of_app_of_ha_file'] = $this->validate_file('tosa_app_proof_of_app_of_ha_file');
+		$data['cogmc-form'] = $this->validate_file('cogmc-form');
 
-		if ($this->form_validation->run() && $data['tosa_app_form_of_scholarship_file'] && $data['tosa_app_registration_file'] && $data['tosa_app_proof_of_app_of_ha_file']) {
+		if ($data['pop-tosa'] && $data['tosa_app_form_of_scholarship_file'] && $data['tosa_app_registration_file'] && $data['tosa_app_proof_of_app_of_ha_file'] && $data['cogmc-form']) {
 			if($no_dup){
 				$receipt_number = antiHack($this->input->post('tosa_app_receipt_number'));
 				$user_folder = encodeFolder($user['student_id']);
@@ -546,17 +578,21 @@ class Student extends MY_Controller
 		        $upload_scholarship_form = $this->media_upload($directory, 'tosa_app_form_of_scholarship_file');
 		        $upload_registration_form = $this->media_upload($directory, 'tosa_app_registration_file');
 		        $upload_app_prof = $this->media_upload($directory, 'tosa_app_proof_of_app_of_ha_file');
+				$upload_pop = $this->media_upload($directory, 'pop-tosa');
+				$upload_cgmc = $this->media_upload($directory, 'cogmc-form');
 
 		        $new_cgcm = [
 		        	'student_id' => $user['student_id'],
-		        	'receipt_number' => $receipt_number,
+		        	'receipt_number' => $upload_pop['file_name'],
 		            'receipt_number_status' => 'pending',
 		            'tosa_app_form_of_scholarship_file' =>  $upload_scholarship_form['file_name'],
 		            'tosa_app_form_of_scholarship_status' => 'pending',
 		            'registration_file' =>  $upload_registration_form['file_name'],
 		            'registration_status' => 'pending',
 		            'proof_of_app_of_ha_file' =>  $upload_app_prof['file_name'],
-		            'proof_of_app_of_ha_status' => 'pending'
+		            'proof_of_app_of_ha_status' => 'pending',
+					'cgmc_form_file' =>  $upload_cgmc['file_name'],
+		            'cgmc_form_status' => 'pending'
 		        ];
 
 		        $this->model->store_request_cgmc_tosa_app($new_cgcm);
@@ -659,17 +695,21 @@ class Student extends MY_Controller
 		$no_dup = $this->model->check_duplicate_cgmc_rnu_rep($user['student_id']);
 
 		$data['rnu_rep_registration_form_file'] = $this->validate_file('rnu_rep_registration_form_file');
+		$data['cogmc-form'] = $this->validate_file('cogmc-form');
 
 		if ($data['rnu_rep_registration_form_file']) {
 			if($no_dup){
 				$user_folder = encodeFolder($user['student_id']);
 				$directory = 'assets/uploads/docs/'.$user_folder.'/';
 		        $upload_form = $this->media_upload($directory, 'rnu_rep_registration_form_file');
+				$upload_cgmc = $this->media_upload($directory, 'cogmc-form');
 
 		        $new_cgcm = [
 		        	'student_id' => $user['student_id'],
 		            'registration_form_file' =>  $upload_form['file_name'],
-		            'registration_form_status' => 'pending'
+		            'registration_form_status' => 'pending',
+					'cgmc_form_file' =>  $upload_cgmc['file_name'],
+		            'cgmc_form_status' => 'pending'
 		        ];
 
 		        $this->model->store_request_cgmc_rnu_rep($new_cgcm);

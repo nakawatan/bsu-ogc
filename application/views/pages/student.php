@@ -18,7 +18,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 <div class="container">
 	<ul class="user-details clearfix">
 		<li class="user-avatar">
-			<img src="<?= ASSETS ?>profiles/test.png" alt="">
+			<img src="<?= $image ?>" alt="">
 		</li>
 	    <li class="user-fullname"><?= $student->last_name; ?>, <?= $student->first_name; ?> <?= $student->middle_name; ?></li>
 	   
@@ -137,13 +137,12 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 										<?php if($request_cgmc_job_application): ?><input type="hidden" name="request_id" value="<?= base64_encode($request_cgmc_job_application->id) ?>"><?php endif; ?>
 										<div class="form-group">
 											<div class="label"><strong>Proof of Payment:</strong> <small>(e.g., Screenshot of e-receipt)</small></div>
-									<!-- change to attach file
-										 <input type="number" name="receipt-number" id="receipt-number" value="<?= $ja_receipt_number; ?>" <?= $ja_receipt_number && $ja_receipt_number_status != 'reject' ? 'disabled' : '' ?>>  
-									-->
+											<input type="file" name="pop-job-application" id="pop-job-application" <?= $ja_tor_file && $ja_tor_status != 'reject' ? 'disabled' : '' ?>/>
+											<label class="btn-attach" for="pop-job-application" title="Attach file here"><?= $ja_tor_file ? $ja_tor_file : 'Attach file here' ?></label>	
 											<?php if($ja_receipt_number_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($ja_receipt_number_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
-									<!-- $ja_cgmc_form_file & $ja_cgmc_form_status is not yet on database.
+									<!-- $ja_cgmc_form_file & $ja_cgmc_form_status is not yet on database. -->
 										<div class="form-group">
 											<div class="label"><strong>Certificate of Good Moral Character Form:</strong> <small>Signed by the OSD and OJT Coordinator</small></div>
 											<input type="file" name="cogmc-form" id="cogmc-form" <?= $ja_cgmc_form_file && $ja_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
@@ -151,7 +150,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 											<?php if($ja_cgmc_form_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($ja_cgmc_form_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
-									-->
+									
 										<div class="form-group">
 											<div class="label"><strong>Diploma / Transcript of Record:</strong></div>
 											<input type="file" name="tor" id="tor" <?= $ja_tor_file && $ja_tor_status != 'reject' ? 'disabled' : '' ?>/>
@@ -212,7 +211,8 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 							<?php if($request_cgmc_scholarship): ?><input type="hidden" name="request_id" value="<?= base64_encode($request_cgmc_scholarship->id) ?>"><?php endif; ?>
 						<div class="form-group">
 							<div class="label"><strong>Proof of Payment:</strong> <small>e.g., Screenshot of e-receipt</small></div>
-					<!-- attach file <input type="number" name="ss_receipt_number" id="ss_receipt_number" value="<?= $ss_receipt_number; ?>" <?= $ss_receipt_number && $ss_receipt_number_status != 'reject' ? 'disabled' : '' ?>> -->
+							<input type="file" name="pop-scholarship" id="pop-scholarship" <?= $ja_tor_file && $ja_tor_status != 'reject' ? 'disabled' : '' ?>/>
+							<label class="btn-attach" for="pop-scholarship" title="Attach file here"><?= $ja_tor_file ? $ja_tor_file : 'Attach file here' ?></label>	
 							<?php if($ss_receipt_number_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 							<?php if($ss_receipt_number_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 						</div>
@@ -308,13 +308,12 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 										<?php if($request_cgmc_transferee): ?><input type="hidden" name="request_id" value="<?= base64_encode($request_cgmc_transferee->id) ?>"><?php endif; ?>
 										<div class="form-group">
 											<div class="label"><strong>Proof of Payment:</strong> <small>(e.g., Screenshot of e-receipt)</small></div>
-										<!-- change to attach file 
-											<input type="number" name="transferee_receipt_number" id="transferee_receipt_number" value="<?= $transferee_receipt_number; ?>" <?= $transferee_receipt_number && $transferee_receipt_number_status != 'reject' ? 'disabled' : '' ?>>
-										-->
+											<input type="file" name="pop-transfer" id="pop-transfer" <?= $ja_tor_file && $ja_tor_status != 'reject' ? 'disabled' : '' ?>/>
+											<label class="btn-attach" for="pop-transfer" title="Attach file here"><?= $ja_tor_file ? $ja_tor_file : 'Attach file here' ?></label>	
 											<?php if($transferee_receipt_number_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($transferee_receipt_number_status == 'rejct') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
-									<!-- $transferee_cgmc_form_file & $transferee_cgmc_form_status is not yet on database.
+									<!-- $transferee_cgmc_form_file & $transferee_cgmc_form_status is not yet on database. -->
 										<div class="form-group">
 											<div class="label"><strong>Certificate of Good Moral Character Form:</strong> <small>Signed by the OSD and OJT Coordinator</small></div>
 											<input type="file" name="cogmc-form" id="cogmc-form" <?= $transferee_cgmc_form_file && $transferee_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
@@ -322,7 +321,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 											<?php if($transferee_cgmc_form_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($transferee_cgmc_form_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
-									-->
+									
 										<div class="form-group">
 											<div class="label"><strong>Exit Interview Form:</strong></div>
 											<input type="file" name="transferee_exit_interview_form_file" id="transferee_exit_interview_form_file" <?= $transferee_exit_interview_form_file && $transferee_exit_interview_form_status != 'reject' ? 'disabled' : '' ?>/>
@@ -383,13 +382,13 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 										<?php if($request_cgmc_tosa_app): ?><input type="hidden" name="request_id" value="<?= base64_encode($request_cgmc_tosa_app->id) ?>"><?php endif; ?>
 										<div class="form-group">
 											<div class="label"><strong>Proof of payment:</strong> <small>(e.g., Screenshot of e-receipt)</small></div>
-									<!-- attach file 
-											<input type="number" name="tosa_app_receipt_number" id="tosa_app_receipt_number" value="<?= $tosa_app_receipt_number; ?>" <?= $tosa_app_receipt_number && $tosa_app_receipt_number_status != 'reject' ? 'disabled' : '' ?>>
+											<input type="file" name="pop-tosa" id="pop-tosa" <?= $ja_tor_file && $ja_tor_status != 'reject' ? 'disabled' : '' ?>/>
+											<label class="btn-attach" for="pop-tosa" title="Attach file here"><?= $ja_tor_file ? $ja_tor_file : 'Attach file here' ?></label>	
 											<?php if($tosa_app_receipt_number_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($tosa_app_receipt_number_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
-									-->
-									<!-- $tosa_app_cgmc_form_file & $tosa_app_cgmc_form_status is not yet on database.
+										
+									<!-- $tosa_app_cgmc_form_file & $tosa_app_cgmc_form_status is not yet on database. -->
 										<div class="form-group">
 											<div class="label"><strong>Certificate of Good Moral Character Form:</strong> <small>Signed by the OSD and OJT Coordinator</small></div>
 											<input type="file" name="cogmc-form" id="cogmc-form" <?= $tosa_app_cgmc_form_file && $tosa_app_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
@@ -397,7 +396,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 											<?php if($tosa_app_cgmc_form_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($tosa_app_cgmc_form_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
-									-->
+									
 										<div class="form-group">
 											<div class="label"><strong>TOSA Application Form of Scholarship</strong></div>
 											<input type="file" name="tosa_app_form_of_scholarship_file" id="tosa_app_form_of_scholarship_file" <?= $tosa_app_form_of_scholarship_file && $tosa_app_form_of_scholarship_status != 'reject' ? 'disabled' : '' ?>/>
@@ -473,7 +472,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 								<div class="text-helper second-step">
 									<form class="form-validate" id="<?= $request_cgmc_rnu_rep ? 'update_request_cgmc_rnu_rep' : 'request_cgmc_rnu_rep' ?>" method="post" enctype="multipart/form-data">
 										<?php if($request_cgmc_rnu_rep): ?><input type="hidden" name="request_id" value="<?= base64_encode($request_cgmc_rnu_rep->id) ?>"><?php endif; ?>
-									<!-- $rnu_rep_cgmc_form_file & $rnu_rep_cgmc_form_status is not yet on database.
+									<!-- $rnu_rep_cgmc_form_file & $rnu_rep_cgmc_form_status is not yet on database. -->
 										<div class="form-group">
 											<div class="label"><strong>Certificate of Good Moral Character Form:</strong> <small>Signed by the OSD and OJT Coordinator</small></div>
 											<input type="file" name="cogmc-form" id="cogmc-form" <?= $rnu_rep_cgmc_form_file && $rnu_rep_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
@@ -481,7 +480,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 											<?php if($rnu_rep_cgmc_form_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($rnu_rep_cgmc_form_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
-									-->
+									
 										<div class="form-group">
 											<div class="label"><strong>Registration Form:</strong> <small>Current Semester</small></div>
 											<input type="file" name="rnu_rep_registration_form_file" id="rnu_rep_registration_form_file" <?= $rnu_rep_registration_form_file && $rnu_rep_registration_form_status != 'reject' ? 'disabled' : '' ?>/>

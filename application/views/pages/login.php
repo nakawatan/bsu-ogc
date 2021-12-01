@@ -44,7 +44,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
         var profile = googleUser.getBasicProfile();
         $('#first_name').val(profile.getGivenName());
         $('#last_name').val(profile.getFamilyName());
-        alert(profile.getImageUrl());
         $('#google_image').val(profile.getImageUrl());
         $('#email_hidden').val(profile.getEmail());
         $('#google_id').val(profile.getId());

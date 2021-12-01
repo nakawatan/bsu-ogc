@@ -25,12 +25,16 @@ class Login extends MY_Controller
             $username = $this->input->post('user');
             $password = $this->input->post('pass');
             $google_id = $this->input->post('google_id');
+            $google_image = $this->input->post('google_image');
             $tmp = $this->model->authenticate($google_id);
             if ($username != "") {
                 $tmp = $this->model->authenticate_admin($username,$password);
             }
 
             if (COUNT($tmp) > 0) {
+                if ($google_image != ""){
+                    $tmp['image'] = $google_image;
+                }
                 $this->session->set_userdata('member_login', $tmp);
             }else{
                 $data['error'] = true;

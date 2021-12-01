@@ -555,4 +555,20 @@ class Admin extends MY_Controller
         }
     }
 
+    public function get_notifications(){
+        $data['title'] = 'Request of Certificate of Good moral character';
+        $data['cgmc_ojt_pending'] = $this->model->get_requests_cgmc_ojt();
+        $data['cgmc_ja_pending'] = $this->model->get_requests_cgmc_ja();
+        $data['cgmc_ss_pending'] = $this->model->get_requests_cgmc_ss();
+        $data['cgmc_tf_pending'] = $this->model->get_requests_cgmc_tf();
+        $data['cgmc_ta_pending'] = $this->model->get_requests_cgmc_ta();
+        $data['cgmc_rnur_pending'] = $this->model->get_requests_cgmc_rnur();
+
+        $output = json_encode($data);
+
+        return $this->output
+                    ->set_content_type('application/json')
+                    ->set_output($output); 
+    }
+
 }
