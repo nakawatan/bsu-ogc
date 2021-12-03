@@ -717,7 +717,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 						<div id="datepicker"></div>
 					</div>
 				</div>
-				<div class="form-group d-flex">
+				<div class="form-group no-flex">
 					<div>
 						<label for="time">Select Time</label>
 						<div class="text-center">
@@ -728,11 +728,18 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 							</select>
 						</div>
 					</div>
-					<div>
-						<label for="available-slots">Available Slots :</label>
-						<div class="text-center">
-							<input type="text" name="available-slots" value="<?= max_slots() - $default_available_slots; ?> Slots" readonly>
+				</div>
+				<div class="no-flex">
+					<!-- <label for="available-slots">Available Slots :</label>
+					<div class="text-center">
+						<input type="text" name="available-slots" value="<?= max_slots() - $default_available_slots; ?> Slots" readonly>
+					</div> -->
+					<div class="no-flex">
+						<label for="available-slots">Members :</label>
+						<div class="gc-member-list">
 						</div>
+						<input type="text" name="gc-member" id="gc-member" value="">
+						<button class="btn-add-member btn" type="button">Add member</button>
 					</div>
 				</div>
 				<p class="text-center"><button type="submit" class="btn btn-green">SET APPOINTMENT</button></p>

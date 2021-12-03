@@ -40,6 +40,9 @@ define('TITLE', 'Office of Guidance and Counseling');
     <meta name="google-signin-client_id" content="775340702878-4saa4ttuvpgmlvlhnsdh3himpqb50j8h.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
+    <link href='<?= ASSETS ?>js/fullcalendar/main.css' rel='stylesheet' />
+    <script src='<?= ASSETS ?>js/fullcalendar/main.js'></script>
+
     <style>
         
     #noti_Container {

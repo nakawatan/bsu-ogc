@@ -434,10 +434,15 @@
                 formData = form.serialize();
             
             $.ajax({
-                url: form.attr('action')+'/approved',
-                data: formData,
+                url: '/admin/update_group_counceling_v2',
+                data: {
+                    "request_id":$('.my-request-id').attr('data-request-id'),
+                    "status":"approved",
+                },
                 method: 'POST',
                 success: function(response) {
+                    $('body').removeClass('modal-open');
+                    $('.appointment-modal').fadeOut(300);
                     Swal.fire({
                         title: 'Save!',
                         icon: 'success',
@@ -457,10 +462,15 @@
                 formData = form.serialize();
             
             $.ajax({
-                url: form.attr('action')+'/reject',
-                data: formData,
+                url: '/admin/update_group_counceling_v2',
+                data: {
+                    "request_id":$('.my-request-id').attr('data-request-id'),
+                    "status":"approved",
+                },
                 method: 'POST',
                 success: function(response) {
+                    $('body').removeClass('modal-open');
+                    $('.appointment-modal').fadeOut(300);
                     Swal.fire({
                         title: 'Save!',
                         icon: 'success',

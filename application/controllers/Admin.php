@@ -322,6 +322,54 @@ class Admin extends MY_Controller
         parent::view('admin/group_counceling', $data);
     }
 
+    function get_group_counceling(){
+        $appointment_type= "group_counseling";
+        if ($this->input->get('type') != "") {
+            $appointment_type = $this->input->get('type');
+        }
+        $result = $this->model->get_appointment_list_by_range($appointment_type);
+        
+        $arr = [];
+        foreach ($result as $a) {
+            $x = array();
+            $x['title'] = $a["first_name"]. " ". $a["last_name"];
+            $x['start'] = $a["appointment_date"];
+            $x['id'] = $a["id"];
+            $x['members'] = $a['members'];
+            $x['status'] = $a['status'];
+
+            if ($a['status'] == "approved"){
+                $x['color'] = "#378006";
+            }
+            if ($a['status'] == "reject"){
+                $x['color'] = "red";
+            }
+            $arr[] = $x;
+        }
+
+        $output = json_encode($arr);
+        return $this->output
+                    ->set_content_type('application/json')
+                    ->set_output($output); 
+    }
+
+    function update_group_counceling_v2(){
+        $id = $this->input->post('request_id');
+        $status = $this->input->post('status');
+
+        if(isset($id) && !empty($id)){
+            $request_update[] = ['id' => $id, 'status' => $status];
+            $this->model->update_batch_appointment($request_update);
+        }
+
+        $response = '{"status" : true}';
+        
+        $output = json_encode($response);
+        return $this->output
+                    ->set_content_type('application/json')
+                    ->set_output($output); 
+    }
+
     public function update_appointment_gc($date, $action = 'pending')
     {
         $data['title'] = '';
@@ -359,14 +407,17 @@ class Admin extends MY_Controller
         switch ($type) {
             case 'initial_interview':
                 $data['title'] = 'Initial On-The-Job Training Interview Appointments';
+                $data['appointment_type'] = 'initial_interview';
                 break;
 
             case 'post_interview':
                 $data['title'] = 'Post On-The-Job Training Interview Appointments';
+                $data['appointment_type'] = 'post_interview';
                 break;
 
             case 'exit_interview':
                 $data['title'] = 'Exit Interview Appointments';
+                $data['appointment_type'] = 'exit_interview';
                 break;
             
             default:

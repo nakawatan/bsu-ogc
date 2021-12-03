@@ -1014,4 +1014,19 @@
 			}
 		});
 	}
+
+	$('.btn-add-member').on('click',function(){
+		if ($("#gc-member").val() == "") {
+			return;
+		}
+		$(".gc-member-list").append(
+			$('<input>')
+			.attr('type','text')
+			.attr('readonly',true)
+			.val($("#gc-member").val())
+			.addClass("gc-members")
+			.attr('name',"gc-members[]")
+		);
+		$("#gc-member").val("")
+	});
 })(jQuery);

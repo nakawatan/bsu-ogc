@@ -788,6 +788,13 @@ class Student extends MY_Controller
 			$time_format = date('H:i:s', strtotime($time_arr[0].' '.$time_arr[1]));
 			$date = $this->input->post('date').' '.$time_format;
 			$type = $this->input->post('appointment-type');
+			$members = $this->input->post('gc-members[]');
+			$members_list = "";
+			if (isset($members)) {
+				foreach ($members as $member) {
+					$members_list = $members_list . "<br>".  $member;
+				}
+			}
 
 			$no_dup = $this->model->check_duplicate_appointment($user['student_id'], $type);
 
@@ -796,7 +803,8 @@ class Student extends MY_Controller
 					'student_id' => $user['student_id'],
 					'appointment_date' => $date,
 					'type' => $type,
-					'status' => 'pending'
+					'status' => 'pending',
+					'members' => $members_list
 				);
 				$this->model->store_appointment($form_data);	
 				$output = '{"status": true}';

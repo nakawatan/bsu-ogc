@@ -397,6 +397,19 @@ class Admin_model extends CI_Model
         return $result;
     }
 
+    public function get_appointment_list_by_range($type)
+    {
+        $result = $this->db->select('*')
+            // ->where('appointment_date >=', $date . ' 00:00:00')
+            // ->where('appointment_date <=', $date . ' 23:59:59')
+            ->where('type', $type)
+            ->join('students', 'students.student_id = appointment.student_id')
+            ->order_by('appointment_date', 'asc')
+            ->get('appointment')
+            ->result_array();
+        return $result;
+    }
+
     public function get_appointment_pending($date, $type)
     {
         $this->db->where('type', $type);
