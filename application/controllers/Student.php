@@ -64,6 +64,8 @@ class Student extends MY_Controller
 		$data['ss_grade_from_prev_file'] = isset($data['request_cgmc_scholarship']) ? $data['request_cgmc_scholarship']->grades_from_prev_file : '';
 		$data['ss_grade_from_prev_status'] = isset($data['request_cgmc_scholarship']) ? $data['request_cgmc_scholarship']->grades_from_prev_status : '';
 		$data['scholarship_cgmc_file'] = isset($data['request_cgmc_scholarship']) ? $data['request_cgmc_scholarship']->cgmc_file : '';
+		$data['ss_cgmc_form_file'] = isset($data['request_cgmc_job_application']) ? $data['request_cgmc_job_application']->cgmc_form_file : '';
+		$data['ss_cgmc_form_status'] = isset($data['request_cgmc_job_application']) ? $data['request_cgmc_job_application']->cgmc_form_status : '';
 
 		$data['request_cgmc_transferee'] = $this->model->get_request_cgmc_transferee($data['student_id']);
 		$data['transferee_receipt_number'] = isset($data['request_cgmc_transferee']) ? $data['request_cgmc_transferee']->receipt_number : '';
@@ -234,7 +236,7 @@ class Student extends MY_Controller
 		// $this->form_validation->set_rules('pop-job-application', 'Proof of Payment', 'trim|required');
 		$data['pop-job-application'] = $this->validate_file('pop-job-application');
 		$data['tor'] = $this->validate_file('tor');
-		$data['cogmc-form'] = $this->validate_file('cogmc-form');
+		$data['cogmc-form'] = $this->validate_file('cogmc-form-ja');
 
 		if ($data['pop-job-application'] && $data['tor']) {
 			if($no_dup){
@@ -337,6 +339,8 @@ class Student extends MY_Controller
 		$data['ss_application_form_file'] = $this->validate_file('ss_application_form_file');
 		$data['ss_registration_form_file'] = $this->validate_file('ss_registration_form_file');
 		$data['ss_grade_from_prev_file'] = $this->validate_file('ss_grade_from_prev_file');
+		$data['cogmc-form'] = $this->validate_file('cogmc-form-ss');
+		
 
 		if ($data['pop-scholarship'] && $data['ss_application_form_file'] && $data['ss_application_form_file'] && $data['ss_application_form_file']) {
 			if($no_dup){
@@ -347,6 +351,7 @@ class Student extends MY_Controller
 		        $upload_registration_form = $this->media_upload($directory, 'ss_registration_form_file');
 		        $upload_grade_from_prev = $this->media_upload($directory, 'ss_grade_from_prev_file');
 				$upload_pop = $this->media_upload($directory, 'pop-scholarship');
+				$cgcm_form = $this->media_upload($directory, 'cogmc-form');
 
 		        $new_cgcm = [
 		        	'student_id' => $user['student_id'],
@@ -357,7 +362,9 @@ class Student extends MY_Controller
 		            'registration_form_file' =>  $upload_registration_form['file_name'],
 		            'registration_form_status' => 'pending',
 		            'grades_from_prev_file' =>  $upload_grade_from_prev['file_name'],
-		            'grades_from_prev_status' => 'pending'
+		            'grades_from_prev_status' => 'pending',
+					'cgmc_form_file' =>  $cgcm_form['file_name'],
+		            'cgmc_form_status' => 'pending',
 		        ];
 
 		        $this->model->store_request_cgmc_scholarship($new_cgcm);
@@ -464,7 +471,7 @@ class Student extends MY_Controller
 		// $this->form_validation->set_rules('transferee_receipt_number', 'Official Receipt Number', 'trim|required');
 		$data['pop-transfer'] = $this->validate_file('pop-transfer');
 		$data['transferee_exit_interview_form_file'] = $this->validate_file('transferee_exit_interview_form_file');
-		$data['cogmc-form'] = $this->validate_file('cogmc-form');
+		$data['cogmc-form'] = $this->validate_file('cogmc-form-ts');
 
 		if ($data['pop-transfer'] && $data['transferee_exit_interview_form_file'] && $data['cogmc-form']) {
 			if($no_dup){
@@ -568,7 +575,7 @@ class Student extends MY_Controller
 		$data['tosa_app_form_of_scholarship_file'] = $this->validate_file('tosa_app_form_of_scholarship_file');
 		$data['tosa_app_registration_file'] = $this->validate_file('tosa_app_registration_file');
 		$data['tosa_app_proof_of_app_of_ha_file'] = $this->validate_file('tosa_app_proof_of_app_of_ha_file');
-		$data['cogmc-form'] = $this->validate_file('cogmc-form');
+		$data['cogmc-form'] = $this->validate_file('cogmc-form-tosa');
 
 		if ($data['pop-tosa'] && $data['tosa_app_form_of_scholarship_file'] && $data['tosa_app_registration_file'] && $data['tosa_app_proof_of_app_of_ha_file'] && $data['cogmc-form']) {
 			if($no_dup){
@@ -695,7 +702,7 @@ class Student extends MY_Controller
 		$no_dup = $this->model->check_duplicate_cgmc_rnu_rep($user['student_id']);
 
 		$data['rnu_rep_registration_form_file'] = $this->validate_file('rnu_rep_registration_form_file');
-		$data['cogmc-form'] = $this->validate_file('cogmc-form');
+		$data['cogmc-form'] = $this->validate_file('cogmc-form-rnu');
 
 		if ($data['rnu_rep_registration_form_file']) {
 			if($no_dup){

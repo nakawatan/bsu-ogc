@@ -145,8 +145,8 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 									<!-- $ja_cgmc_form_file & $ja_cgmc_form_status is not yet on database. -->
 										<div class="form-group">
 											<div class="label"><strong>Certificate of Good Moral Character Form:</strong> <small>Signed by the OSD and OJT Coordinator</small></div>
-											<input type="file" name="cogmc-form" id="cogmc-form" <?= $ja_cgmc_form_file && $ja_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
-											<label class="btn-attach" for="cogmc-form" title="Attach file here"><?= $ja_cgmc_form_file ? $ja_cgmc_form_file : 'Attach file here' ?></label>	
+											<input type="file" name="cogmc-form-ja" id="cogmc-form-ja" <?= $ja_cgmc_form_file && $ja_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
+											<label class="btn-attach" for="cogmc-form-ja" title="Attach file here"><?= $ja_cgmc_form_file ? $ja_cgmc_form_file : 'Attach file here' ?></label>	
 											<?php if($ja_cgmc_form_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($ja_cgmc_form_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
@@ -217,15 +217,15 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 							<?php if($ss_receipt_number_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 						</div>
 
-					<!-- Not yet on the Database
+						<!-- Not yet on the Database -->
 						<div class="form-group">
 						<div class="label"><strong>Request Form for Certificate of Good Moral Character:</strong> <small>Signed by the OSD Head/Coordinator</small></div>
-						<input type="file" name="ss_cgmc_form_file" id="ss_application_form_file" <?= $ss_cgmc_form_file && $ss_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
-						<label class="btn-attach" for="ss_application_form_file" title="Attach file here"><?= $ss_cgmc_form_file ? $ss_cgmc_form_file : 'Attach file here' ?></label>	
+						<input type="file" name="cogmc-form-ss" id="cogmc-form-ss" <?= $ss_cgmc_form_file && $ss_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
+						<label class="btn-attach" for="cogmc-form-ss" title="Attach file here"><?= $ss_cgmc_form_file ? $ss_cgmc_form_file : 'Attach file here' ?></label>	
 						<?php if($ss_cgmc_form_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 						<?php if($ss_cgmc_form_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 						</div>
-					-->
+						
 						<div class="form-group">
 							<div class="label"><strong>Application Form of Scholarship:</strong></div>
 								<input type="file" name="ss_application_form_file" id="ss_application_form_file" <?= $ss_application_form_file && $ss_application_form_status != 'reject' ? 'disabled' : '' ?>/>
@@ -316,8 +316,8 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 									<!-- $transferee_cgmc_form_file & $transferee_cgmc_form_status is not yet on database. -->
 										<div class="form-group">
 											<div class="label"><strong>Certificate of Good Moral Character Form:</strong> <small>Signed by the OSD and OJT Coordinator</small></div>
-											<input type="file" name="cogmc-form" id="cogmc-form" <?= $transferee_cgmc_form_file && $transferee_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
-											<label class="btn-attach" for="cogmc-form" title="Attach file here"><?= $transferee_cgmc_form_file ? $transferee_cgmc_form_file : 'Attach file here' ?></label>	
+											<input type="file" name="cogmc-form-ts" id="cogmc-form-ts" <?= $transferee_cgmc_form_file && $transferee_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
+											<label class="btn-attach" for="cogmc-form-ts" title="Attach file here"><?= $transferee_cgmc_form_file ? $transferee_cgmc_form_file : 'Attach file here' ?></label>	
 											<?php if($transferee_cgmc_form_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($transferee_cgmc_form_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
@@ -391,8 +391,8 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 									<!-- $tosa_app_cgmc_form_file & $tosa_app_cgmc_form_status is not yet on database. -->
 										<div class="form-group">
 											<div class="label"><strong>Certificate of Good Moral Character Form:</strong> <small>Signed by the OSD and OJT Coordinator</small></div>
-											<input type="file" name="cogmc-form" id="cogmc-form" <?= $tosa_app_cgmc_form_file && $tosa_app_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
-											<label class="btn-attach" for="cogmc-form" title="Attach file here"><?= $tosa_app_cgmc_form_file ? $tosa_app_cgmc_form_file : 'Attach file here' ?></label>	
+											<input type="file" name="cogmc-form-tosa" id="cogmc-form-tosa" <?= $tosa_app_cgmc_form_file && $tosa_app_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
+											<label class="btn-attach" for="cogmc-form-tosa" title="Attach file here"><?= $tosa_app_cgmc_form_file ? $tosa_app_cgmc_form_file : 'Attach file here' ?></label>	
 											<?php if($tosa_app_cgmc_form_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($tosa_app_cgmc_form_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
@@ -475,8 +475,8 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 									<!-- $rnu_rep_cgmc_form_file & $rnu_rep_cgmc_form_status is not yet on database. -->
 										<div class="form-group">
 											<div class="label"><strong>Certificate of Good Moral Character Form:</strong> <small>Signed by the OSD and OJT Coordinator</small></div>
-											<input type="file" name="cogmc-form" id="cogmc-form" <?= $rnu_rep_cgmc_form_file && $rnu_rep_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
-											<label class="btn-attach" for="cogmc-form" title="Attach file here"><?= $rnu_rep_cgmc_form_file ? $rnu_rep_cgmc_form_file : 'Attach file here' ?></label>	
+											<input type="file" name="cogmc-form-rnu" id="cogmc-form-rnu" <?= $rnu_rep_cgmc_form_file && $rnu_rep_cgmc_form_status != 'reject' ? 'disabled' : '' ?>/>
+											<label class="btn-attach" for="cogmc-form-rnu" title="Attach file here"><?= $rnu_rep_cgmc_form_file ? $rnu_rep_cgmc_form_file : 'Attach file here' ?></label>	
 											<?php if($rnu_rep_cgmc_form_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($rnu_rep_cgmc_form_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
