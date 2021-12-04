@@ -971,7 +971,7 @@
 					$div.append(
 						$('<h2>').text(response.cgmc_ja_pending.length + " pending Job application request.").addClass('notification-text')
 						.on('click',function(){
-							window.location.href = "/admin/cgmc_ojt";
+							window.location.href = "/admin/cgmc_ja";
 						})
 					)
 				}
