@@ -1,4 +1,4 @@
-<<div class="appointment-modal custom-modal modal-style-2">
+<div class="appointment-modal custom-modal modal-style-2">
     <div class="modal-wrap">
         <div class="modal-box">
             <div class="modal-content">
