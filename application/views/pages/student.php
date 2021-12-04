@@ -137,8 +137,8 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 										<?php if($request_cgmc_job_application): ?><input type="hidden" name="request_id" value="<?= base64_encode($request_cgmc_job_application->id) ?>"><?php endif; ?>
 										<div class="form-group">
 											<div class="label"><strong>Proof of Payment:</strong> <small>(e.g., Screenshot of e-receipt)</small></div>
-											<input type="file" name="pop-job-application" id="pop-job-application" <?= $ja_tor_file && $ja_tor_status != 'reject' ? 'disabled' : '' ?>/>
-											<label class="btn-attach" for="pop-job-application" title="Attach file here"><?= $ja_tor_file ? $ja_tor_file : 'Attach file here' ?></label>	
+											<input type="file" name="pop-job-application" id="pop-job-application" <?= $ja_receipt_number && $ja_receipt_number_status != 'reject' ? 'disabled' : '' ?>/>
+											<label class="btn-attach" for="pop-job-application" title="Attach file here"><?= $ja_receipt_number ? $ja_receipt_number : 'Attach file here' ?></label>	
 											<?php if($ja_receipt_number_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($ja_receipt_number_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
@@ -211,8 +211,8 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 							<?php if($request_cgmc_scholarship): ?><input type="hidden" name="request_id" value="<?= base64_encode($request_cgmc_scholarship->id) ?>"><?php endif; ?>
 						<div class="form-group">
 							<div class="label"><strong>Proof of Payment:</strong> <small>e.g., Screenshot of e-receipt</small></div>
-							<input type="file" name="pop-scholarship" id="pop-scholarship" <?= $ja_tor_file && $ja_tor_status != 'reject' ? 'disabled' : '' ?>/>
-							<label class="btn-attach" for="pop-scholarship" title="Attach file here"><?= $ja_tor_file ? $ja_tor_file : 'Attach file here' ?></label>	
+							<input type="file" name="pop-scholarship" id="pop-scholarship" <?= $ss_receipt_number && $ss_receipt_number_status != 'reject' ? 'disabled' : '' ?>/>
+							<label class="btn-attach" for="pop-scholarship" title="Attach file here"><?= $ss_receipt_number ? $ss_receipt_number : 'Attach file here' ?></label>	
 							<?php if($ss_receipt_number_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 							<?php if($ss_receipt_number_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 						</div>
@@ -308,8 +308,8 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 										<?php if($request_cgmc_transferee): ?><input type="hidden" name="request_id" value="<?= base64_encode($request_cgmc_transferee->id) ?>"><?php endif; ?>
 										<div class="form-group">
 											<div class="label"><strong>Proof of Payment:</strong> <small>(e.g., Screenshot of e-receipt)</small></div>
-											<input type="file" name="pop-transfer" id="pop-transfer" <?= $ja_tor_file && $ja_tor_status != 'reject' ? 'disabled' : '' ?>/>
-											<label class="btn-attach" for="pop-transfer" title="Attach file here"><?= $ja_tor_file ? $ja_tor_file : 'Attach file here' ?></label>	
+											<input type="file" name="pop-transfer" id="pop-transfer" <?= $transferee_receipt_number && $transferee_receipt_number_status != 'reject' ? 'disabled' : '' ?>/>
+											<label class="btn-attach" for="pop-transfer" title="Attach file here"><?= $transferee_receipt_number ? $transferee_receipt_number : 'Attach file here' ?></label>	
 											<?php if($transferee_receipt_number_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($transferee_receipt_number_status == 'rejct') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
@@ -382,8 +382,8 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 										<?php if($request_cgmc_tosa_app): ?><input type="hidden" name="request_id" value="<?= base64_encode($request_cgmc_tosa_app->id) ?>"><?php endif; ?>
 										<div class="form-group">
 											<div class="label"><strong>Proof of payment:</strong> <small>(e.g., Screenshot of e-receipt)</small></div>
-											<input type="file" name="pop-tosa" id="pop-tosa" <?= $ja_tor_file && $ja_tor_status != 'reject' ? 'disabled' : '' ?>/>
-											<label class="btn-attach" for="pop-tosa" title="Attach file here"><?= $ja_tor_file ? $ja_tor_file : 'Attach file here' ?></label>	
+											<input type="file" name="pop-tosa" id="pop-tosa" <?= $tosa_app_receipt_number && $tosa_app_receipt_number_status != 'reject' ? 'disabled' : '' ?>/>
+											<label class="btn-attach" for="pop-tosa" title="Attach file here"><?= $tosa_app_receipt_number ? $tosa_app_receipt_number : 'Attach file here' ?></label>	
 											<?php if($tosa_app_receipt_number_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($tosa_app_receipt_number_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>

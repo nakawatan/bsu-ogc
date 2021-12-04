@@ -14,7 +14,7 @@
     </div>
     <div class="form-group mb-5">
         <div class="label"><strong>Proof of Payment:</strong> <small>e.g., Screenshot of e-receipt</small></div>
-        <input type="number" name="receipt_number" id="receipt_number" value="<?= $data_table['receipt_number'] ?>">
+        <label class="btn-attach" for="receipt_number" data-target="<?= base_url('assets/uploads/docs/').encodeFolder($data_table['student_id']).'/'.$data_table['receipt_number'] ?>"><?= $data_table['receipt_number']; ?></label>   
         <div class="approved txt-green <?= $data_table['receipt_number_status'] == 'pending' || $data_table['receipt_number_status'] == 'reject' ? 'hide' : '' ?>" data-target="receipt_number_status"><i class="fas fa-check"></i></div>
         <div class="approved txt-red <?= $data_table['receipt_number_status'] == 'pending' || $data_table['receipt_number_status'] == 'approved' ? 'hide' : '' ?>" data-target="receipt_number_status"><i class="fas fa-times"></i></div>
     </div>
@@ -25,21 +25,21 @@
           <button type="button" class="btn btn-small btn-reject" data-input="receipt_number_status">Reject</button>
         </div>
     </div>
-  <!-- $ss_cgmc_form_file & $ss_cgmc_form_status is not yet on database.
+  <!-- $ss_cgmc_form_file & $ss_cgmc_form_status is not yet on database. -->
 		<div class="form-group mb-5">
           <div class="label"><strong>Certificate of Good Moral Character Form:</strong><small>Signed by the OSD and OJT Coordinator</small></div>
-          <label class="btn-attach" for="ss_cgmc_form_file" data-target="<?= base_url('assets/uploads/docs/').encodeFolder($data_table['student_id']).'/'.$data_table['$ss_cgmc_form_file'] ?>"><?= $data_table['$ss_cgmc_form_file']; ?></label>   
-          <div class="approved txt-green <?= $data_table['ss_cgmc_form_status'] == 'pending' || $data_table['ss_cgmc_form_status'] == 'reject' ? 'hide' : '' ?>" data-target="ss_cgmc_form_status"><i class="fas fa-check"></i></div>
-          <div class="approved txt-red <?= $data_table['ss_cgmc_form_status'] == 'pending' || $data_table['ss_cgmc_form_status'] == 'approved' ? 'hide' : '' ?>" data-target="ss_cgmc_form_status"><i class="fas fa-times"></i></div>
+          <label class="btn-attach" for="cgmc_form_file" data-target="<?= base_url('assets/uploads/docs/').encodeFolder($data_table['student_id']).'/'.$data_table['cgmc_form_file'] ?>"><?= $data_table['cgmc_form_file']; ?></label>   
+          <div class="approved txt-green <?= $data_table['cgmc_form_status'] == 'pending' || $data_table['cgmc_form_status'] == 'reject' ? 'hide' : '' ?>" data-target="ss_cgmc_form_status"><i class="fas fa-check"></i></div>
+          <div class="approved txt-red <?= $data_table['cgmc_form_status'] == 'pending' || $data_table['cgmc_form_status'] == 'approved' ? 'hide' : '' ?>" data-target="ss_cgmc_form_status"><i class="fas fa-times"></i></div>
         </div>
     <div class="form-group text-right mt-0">
-        <div><input type="hidden" name="ss_cgmc_form_status" value="<?= $data_table['ss_cgmc_form_status'] ?>"></div>
+        <div><input type="hidden" name="ss_cgmc_form_status" value="<?= $data_table['cgmc_form_status'] ?>"></div>
         <div class="d-right">
           <button type="button" class="btn btn-green btn-small btn-approved" data-input="ss_cgmc_form_status">Approved</button>
           <button type="button" class="btn btn-small btn-reject" data-input="ss_cgmc_form_status">Reject</button>
         </div>
     </div>
-	-->
+	
     <div class="form-group mb-5">
         <div class="label"><strong>Application Form of Scholarship:</strong></div>
         <label class="btn-attach" for="application_form_file" data-target="<?= base_url('assets/uploads/docs/').encodeFolder($data_table['student_id']).'/'.$data_table['application_form_file'] ?>"><?= $data_table['application_form_file']; ?></label>   

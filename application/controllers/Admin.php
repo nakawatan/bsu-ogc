@@ -110,7 +110,8 @@ class Admin extends MY_Controller
             // Update Data
             $update_data = [
                 'receipt_number_status' => $this->input->post('receipt_number_status'),
-                'tor_status' => $this->input->post('tor_status')
+                'tor_status' => $this->input->post('tor_status'),
+                'cgmc_form_status' => $this->input->post('ja_cgmc_form_status')
             ];
 
             $this->model->update('request_cgmc_job_application', $update_data, 'id', $id);
@@ -148,7 +149,8 @@ class Admin extends MY_Controller
                 'receipt_number_status' => $this->input->post('receipt_number_status'),
                 'application_form_status' => $this->input->post('application_form_status'),
                 'registration_form_status' => $this->input->post('registration_form_status'),
-                'grades_from_prev_status' => $this->input->post('grades_from_prev_status')
+                'grades_from_prev_status' => $this->input->post('grades_from_prev_status'),
+                'cgmc_form_status' => $this->input->post('ss_cgmc_form_status')
             ];
 
             $this->model->update('request_cgmc_scholarship', $update_data, 'id', $id);
@@ -182,7 +184,8 @@ class Admin extends MY_Controller
             // Update Data
             $update_data = [
                 'receipt_number_status' => $this->input->post('receipt_number_status'),
-                'exit_interview_form_status' => $this->input->post('exit_interview_form_status')
+                'exit_interview_form_status' => $this->input->post('exit_interview_form_status'),
+                'cgmc_form_status' => $this->input->post('transferee_cgmc_form_status')
             ];
             $this->model->update('request_cgmc_transferee', $update_data, 'id', $id);
         }
@@ -216,7 +219,8 @@ class Admin extends MY_Controller
                 'receipt_number_status' => $this->input->post('receipt_number_status'),
                 'tosa_app_form_of_scholarship_status' => $this->input->post('tosa_app_form_of_scholarship_status'),
                 'registration_status' => $this->input->post('registration_status'),
-                'proof_of_app_of_ha_status' => $this->input->post('proof_of_app_of_ha_status')
+                'proof_of_app_of_ha_status' => $this->input->post('proof_of_app_of_ha_status'),
+                'cgmc_form_status' => $this->input->post('tosa_app_cgmc_form_status')
             ];
             $this->model->update('request_cgmc_tosa_app', $update_data, 'id', $id);
         }
@@ -244,7 +248,8 @@ class Admin extends MY_Controller
         if ($this->form_validation->run()) {
             // Update Data
             $update_data = [
-                'registration_form_status' => $this->input->post('registration_form_status')
+                'registration_form_status' => $this->input->post('registration_form_status'),
+                'cgmc_form_status' => $this->input->post('rnu_rep_cgmc_form_status')
             ];
             $this->model->update('request_cgmc_rnu_rep', $update_data, 'id', $id);
         }
@@ -608,12 +613,12 @@ class Admin extends MY_Controller
 
     public function get_notifications(){
         $data['title'] = 'Request of Certificate of Good moral character';
-        $data['cgmc_ojt_pending'] = $this->model->get_requests_cgmc_ojt();
-        $data['cgmc_ja_pending'] = $this->model->get_requests_cgmc_ja();
-        $data['cgmc_ss_pending'] = $this->model->get_requests_cgmc_ss();
-        $data['cgmc_tf_pending'] = $this->model->get_requests_cgmc_tf();
-        $data['cgmc_ta_pending'] = $this->model->get_requests_cgmc_ta();
-        $data['cgmc_rnur_pending'] = $this->model->get_requests_cgmc_rnur();
+        $data['cgmc_ojt_pending'] = $this->model->get_generic_notification('request_cgmc_ojt');
+        $data['cgmc_ja_pending'] = $this->model->get_generic_notification('request_cgmc_job_application');
+        $data['cgmc_ss_pending'] = $this->model->get_generic_notification('request_cgmc_scholarship');
+        $data['cgmc_tf_pending'] = $this->model->get_generic_notification('request_cgmc_transferee');
+        $data['cgmc_ta_pending'] = $this->model->get_generic_notification('request_cgmc_tosa_app');
+        $data['cgmc_rnur_pending'] = $this->model->get_generic_notification('request_cgmc_rnu_rep');
 
         $output = json_encode($data);
 

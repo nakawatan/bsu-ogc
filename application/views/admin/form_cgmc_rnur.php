@@ -12,21 +12,21 @@
         <span>4th year</span>
       </div>
     </div>
-    <!-- $rnu_rep_cgmc_form_file & $rnu_rep_cgmc_form_status is not yet on database.
+    <!-- $rnu_rep_cgmc_form_file & $rnu_rep_cgmc_form_status is not yet on database. -->
 		<div class="form-group mb-5">
           <div class="label"><strong>Certificate of Good Moral Character Form:</strong><small>Signed by the OSD and OJT Coordinator</small></div>
-          <label class="btn-attach" for="rnu_rep_cgmc_form_file" data-target="<?= base_url('assets/uploads/docs/').encodeFolder($data_table['student_id']).'/'.$data_table['$rnu_rep_cgmc_form_file'] ?>"><?= $data_table['$rnu_rep_cgmc_form_file']; ?></label>   
-          <div class="approved txt-green <?= $data_table['rnu_rep_cgmc_form_status'] == 'pending' || $data_table['rnu_rep_cgmc_form_status'] == 'reject' ? 'hide' : '' ?>" data-target="rnu_rep_cgmc_form_status"><i class="fas fa-check"></i></div>
-          <div class="approved txt-red <?= $data_table['rnu_rep_cgmc_form_status'] == 'pending' || $data_table['rnu_rep_cgmc_form_status'] == 'approved' ? 'hide' : '' ?>" data-target="rnu_rep_cgmc_form_status"><i class="fas fa-times"></i></div>
+          <label class="btn-attach" for="rnu_rep_cgmc_form_file" data-target="<?= base_url('assets/uploads/docs/').encodeFolder($data_table['student_id']).'/'.$data_table['cgmc_form_file'] ?>"><?= $data_table['cgmc_form_file']; ?></label>   
+          <div class="approved txt-green <?= $data_table['cgmc_form_status'] == 'pending' || $data_table['cgmc_form_status'] == 'reject' ? 'hide' : '' ?>" data-target="rnu_rep_cgmc_form_status"><i class="fas fa-check"></i></div>
+          <div class="approved txt-red <?= $data_table['cgmc_form_status'] == 'pending' || $data_table['cgmc_form_status'] == 'approved' ? 'hide' : '' ?>" data-target="rnu_rep_cgmc_form_status"><i class="fas fa-times"></i></div>
         </div>
     <div class="form-group text-right mt-0">
-        <div><input type="hidden" name="rnu_rep_cgmc_form_status" value="<?= $data_table['rnu_rep_cgmc_form_status'] ?>"></div>
+        <div><input type="hidden" name="rnu_rep_cgmc_form_status" value="<?= $data_table['cgmc_form_status'] ?>"></div>
         <div class="d-right">
           <button type="button" class="btn btn-green btn-small btn-approved" data-input="rnu_rep_cgmc_form_status">Approved</button>
           <button type="button" class="btn btn-small btn-reject" data-input="rnu_rep_cgmc_form_status">Reject</button>
         </div>
     </div>
-	-->
+	
     <div class="form-group mb-5">
         <div class="label"><strong>Registration Form:</strong></div>
         <label class="btn-attach" for="registration_form_file" data-target="<?= base_url('assets/uploads/docs/').encodeFolder($data_table['student_id']).'/'.$data_table['registration_form_file'] ?>"><?= $data_table['registration_form_file']; ?></label>   

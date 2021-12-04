@@ -18,8 +18,8 @@
             if($data_table) :
                 foreach($data_table as $info) :
             ?>
-                <tr data-target="<?= base_url('admin/update_cgmc_ja/').$info['id'] ?>" <?= $info['cgmc_file'] ? 'disabled' : '' ?>>
-                    <td><?= $info['username'] ?></td>
+                <tr <?php if(!$info['cgmc_file']): ?> data-target="<?= base_url('admin/update_cgmc_ja/').$info['id'] ?>" <?= $info['cgmc_file'] ? 'disabled' : '' ?><?php endif; ?>>
+                <td><span class="check-icon txt-green <?= !$info['cgmc_file'] ? 'visible-hidden' : '' ?>"><i class="fas fa-check"></i></span><?= $info['username'] ?></td>
                     <td><?= $info['last_name'] ?>, <?= $info['first_name'] ?> <?= $info['middle_name'] ?></td>
                     <td><?= $info['course'] ?></td>
                     <td>4th Year</td>

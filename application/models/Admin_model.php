@@ -227,6 +227,20 @@ class Admin_model extends CI_Model
         return $qry;
     }
 
+    public function get_generic_notification($table)
+    {
+        $qry = $this->db->select('*')
+            ->from($table)
+            ->where('cgmc_file','')
+            // ->or_where('cgmc_form_status','pending')
+            // ->or_where('career_advising_status','pending')
+            ->join('students', 'students.student_id = '.$table.'.student_id')
+            ->join('users', 'users.student_id = '.$table.'.student_id')
+            ->get()->result_array();
+
+        return $qry;
+    }
+
     public function get_requests_cgmc_ja()
     {
         $qry = $this->db->select('*')
