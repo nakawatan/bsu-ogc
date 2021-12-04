@@ -37,7 +37,7 @@ define('TITLE', 'Office of Guidance and Counseling');
     <link rel="stylesheet" type="text/css" href="<?= ASSETS ?>css/fontawesome.min.css">
 
     <!-- <script src="https://kit.fontawesome.com/c795f7aacf.js" crossorigin="anonymous"></script> -->
-    <meta name="google-signin-client_id" content="775340702878-4saa4ttuvpgmlvlhnsdh3himpqb50j8h.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="719609387588-js0c2geb2ejsnkca52n6n1dcsupgb7kd.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <link href='<?= ASSETS ?>js/fullcalendar/main.css' rel='stylesheet' />
