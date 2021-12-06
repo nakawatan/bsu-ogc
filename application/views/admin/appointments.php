@@ -3,7 +3,7 @@
         <div class="modal-box">
             <div class="modal-content">
                 <!--  -->
-                <h2 class="text-center">Group Counseling Appointments</h2>
+                <h2 class="text-center div-title">Group Counseling Appointments</h2>
                 <div data-request-id="" class="my-request-id d-flex">
                     <div>
                         <label>Requestor : </label> <span class="requester-name"></span>
@@ -29,6 +29,7 @@
 
 <script>
     var calendar;
+    var appointment_type = '<?php echo $appointment_type; ?>';
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         calendar = new FullCalendar.Calendar(calendarEl, {
@@ -69,6 +70,13 @@
             }
         });
         calendar.render();
+        if (appointment_type == "exit_interview"){
+            $('.div-title').text("Exit Interview");
+        }else if (appointment_type == "initial_interview"){
+            $('.div-title').text("OJT Initial Interview");
+        }else{
+            $('.div-title').text("OJT Post Interview");
+        }
     });
 
     function loadCurrentEvent(){

@@ -618,43 +618,115 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 				$request_list = [];
 				if($request_cgmc_ojt){ 
 					$request_list['request_cgmc_ojt']['name'] = 'CGMC On-The-Job Training';
-					$request_list['request_cgmc_ojt']['status'] = ($ojt_registration_form_status == 'approved' && $ojt_cgmc_form_status == 'approved' && $ojt_career_advising_status == 'approved') ? 'Approved' : 'Pending'; 
+					// $request_list['request_cgmc_ojt']['status'] = ($ojt_registration_form_status == 'approved' && $ojt_cgmc_form_status == 'approved' && $ojt_career_advising_status == 'approved') ? 'Approved' : 'Pending'; 
+					if($ojt_registration_form_status == 'approved' && $ojt_cgmc_form_status == 'approved' && $ojt_career_advising_status == 'approved'){
+						$request_list['request_cgmc_ojt']['status'] = "Approved";
+					}else if($ojt_registration_form_status == 'approved' && $ojt_cgmc_form_status == 'approved' && $ojt_career_advising_status == 'reject'){
+						$request_list['request_cgmc_ojt']['status'] = "Rejected";
+					}else {
+						$request_list['request_cgmc_ojt']['status'] = "Pending";
+					}
 				}
 				if($request_cgmc_job_application){ 
 					$request_list['request_cgmc_job_application']['name'] = 'CGMC Job Application';
-					$request_list['request_cgmc_job_application']['status'] = ($ja_receipt_number_status == 'approved' && $ja_tor_status == 'approved') ? 'Approved' : 'Pending'; 
+					// $request_list['request_cgmc_job_application']['status'] = ($ja_receipt_number_status == 'approved' && $ja_tor_status == 'approved') ? 'Approved' : 'Pending'; 
+					if ($ja_receipt_number_status == 'approved' && $ja_tor_status == 'approved'){
+						$request_list['request_cgmc_job_application']['status'] = "Approved";
+					}else if ($ja_receipt_number_status == 'reject' && $ja_tor_status == 'reject'){
+						$request_list['request_cgmc_job_application']['status'] = "Rejected";
+					}else {
+						$request_list['request_cgmc_job_application']['status'] = "Pending";
+					}
 				}
 				if($request_cgmc_scholarship){ 
 					$request_list['request_cgmc_scholarship']['name'] = 'CGMC Scholarship';
-					$request_list['request_cgmc_scholarship']['status'] = ($ss_receipt_number_status == 'approved' && $ss_application_form_status == 'approved' && $ss_registration_form_status == 'approved' && $ss_grade_from_prev_status == 'approved') ? 'Approved' : 'Pending'; 
+					// $request_list['request_cgmc_scholarship']['status'] = ($ss_receipt_number_status == 'approved' && $ss_application_form_status == 'approved' && $ss_registration_form_status == 'approved' && $ss_grade_from_prev_status == 'approved') ? 'Approved' : 'Pending'; 
+					if ($ss_receipt_number_status == 'approved' && $ss_application_form_status == 'approved' && $ss_registration_form_status == 'approved' && $ss_grade_from_prev_status == 'approved') {
+						$request_list['request_cgmc_scholarship']['status'] = "Approved";
+					}else if($ss_receipt_number_status == 'reject' && $ss_application_form_status == 'reject' && $ss_registration_form_status == 'reject' && $ss_grade_from_prev_status == 'reject'){
+						$request_list['request_cgmc_scholarship']['status'] = "Rejected";
+					}else{
+						$request_list['request_cgmc_scholarship']['status'] = "Pending";
+					}
 				}
 				if($request_cgmc_transferee){ 
 					$request_list['request_cgmc_transferee']['name'] = 'CGMC Transferee';
-					$request_list['request_cgmc_transferee']['status'] = ($transferee_receipt_number_status == 'approved' && $transferee_exit_interview_form_status == 'approved') ? 'Approved' : 'Pending';  
+					// $request_list['request_cgmc_transferee']['status'] = ($transferee_receipt_number_status == 'approved' && $transferee_exit_interview_form_status == 'approved') ? 'Approved' : 'Pending';  
+
+					if ($transferee_receipt_number_status == 'approved' && $transferee_exit_interview_form_status == 'approved'){
+						$request_list['request_cgmc_transferee']['status'] = "Approved";
+					}else if($transferee_receipt_number_status == 'reject' && $transferee_exit_interview_form_status == 'reject'){
+						$request_list['request_cgmc_transferee']['status'] = "Rejected";
+					}else {
+						$request_list['request_cgmc_transferee']['status'] = "Pending";
+					}
 				}
 				if($request_cgmc_tosa_app){ 
 					$request_list['request_cgmc_tosa_app']['name'] = 'CGMC TOSA Application';
-					$request_list['request_cgmc_tosa_app']['status'] = ($tosa_app_receipt_number_status == 'approved' && $tosa_app_form_of_scholarship_status == 'approved' && $tosa_app_registration_status == 'approved') ? 'Approved' : 'Pending';  
+					// $request_list['request_cgmc_tosa_app']['status'] = ($tosa_app_receipt_number_status == 'approved' && $tosa_app_form_of_scholarship_status == 'approved' && $tosa_app_registration_status == 'approved') ? 'Approved' : 'Pending';  
+
+					if ($tosa_app_receipt_number_status == 'approved' && $tosa_app_form_of_scholarship_status == 'approved' && $tosa_app_registration_status == 'approved') {
+						$request_list['request_cgmc_tosa_app']['status']="Approved";
+					}else if($tosa_app_receipt_number_status == 'reject' && $tosa_app_form_of_scholarship_status == 'reject' && $tosa_app_registration_status == 'reject') {
+						$request_list['request_cgmc_tosa_app']['status']="Rejected";
+					}else {
+						$request_list['request_cgmc_tosa_app']['status']="Pending";
+					}
 				}
 				if($request_cgmc_rnu_rep){ 
 					$request_list['request_cgmc_rnu_rep']['name'] = 'CGMC Regional/ National/ International University\'s Representative';
-					$request_list['request_cgmc_rnu_rep']['status'] = ($rnu_rep_registration_form_status == 'approved') ? 'Approved' : 'Pending'; 
+					// $request_list['request_cgmc_rnu_rep']['status'] = ($rnu_rep_registration_form_status == 'approved') ? 'Approved' : 'Pending'; 
+					if($rnu_rep_registration_form_status == 'approved'){
+						$request_list['request_cgmc_rnu_rep']['status']="Approved";
+					}else if ($rnu_rep_registration_form_status == 'reject'){
+						$request_list['request_cgmc_rnu_rep']['status']="Rejected";
+					}else {
+						$request_list['request_cgmc_rnu_rep']['status']="Pending";
+					}
 				}
 				if($appointment_group_counseling){ 
 					$request_list['appointment_group_counseling']['name'] = 'Appointment Group Counseling';
-					$request_list['appointment_group_counseling']['status'] = ($appointment_group_counseling->status == 'approved') ? 'Approved' : 'Pending'; 
+					// $request_list['appointment_group_counseling']['status'] = ($appointment_group_counseling->status == 'approved') ? 'Approved' : 'Pending'; 
+					if($appointment_group_counseling->status == 'approved'){
+						$request_list['appointment_group_counseling']['status']="Approved";
+					}else if ($appointment_group_counseling->status == 'reject'){
+						$request_list['appointment_group_counseling']['status']="Rejected";
+					}else {
+						$request_list['appointment_group_counseling']['status']="Pending";
+					}
 				}
 				if($appointment_exit_interview){ 
 					$request_list['appointment_exit_interview']['name'] = 'Appointment Exit Interview';
-					$request_list['appointment_exit_interview']['status'] = ($appointment_exit_interview->status == 'approved') ? 'Approved' : 'Pending'; 
+					// $request_list['appointment_exit_interview']['status'] = ($appointment_exit_interview->status == 'approved') ? 'Approved' : 'Pending'; 
+					if ($appointment_exit_interview->status == 'approved') {
+						$request_list['appointment_exit_interview']['status'] ="Approved";
+					}else if ($appointment_exit_interview->status == 'reject'){
+						$request_list['appointment_exit_interview']['status'] ="Rejected";
+					}else {
+						$request_list['appointment_exit_interview']['status'] ="Pending";
+					}
 				}
 				if($appointment_initial_interview){ 
 					$request_list['appointment_initial_interview']['name'] = 'Appointment Initial Interview';
-					$request_list['appointment_initial_interview']['status'] = ($appointment_initial_interview->status == 'approved') ? 'Approved' : 'Pending'; 
+					// $request_list['appointment_initial_interview']['status'] = ($appointment_initial_interview->status == 'approved') ? 'Approved' : 'Pending'; 
+					if ($appointment_initial_interview->status == 'approved') {
+						$request_list['appointment_initial_interview']['status']="Approved";
+					}else if ($appointment_initial_interview->status == 'reject'){
+						$request_list['appointment_initial_interview']['status']="Rejected";
+					}else {
+						$request_list['appointment_initial_interview']['status']="Pending";
+					}
 				}
 				if($appointment_post_interview){ 
 					$request_list['appointment_post_interview']['name'] = 'Appointment Post Interview';
-					$request_list['appointment_post_interview']['status'] = ($appointment_post_interview->status == 'approved') ? 'Approved' : 'Pending';  
+					// $request_list['appointment_post_interview']['status'] = ($appointment_post_interview->status == 'approved') ? 'Approved' : 'Pending';  
+					if ($appointment_post_interview->status == 'approved') {
+						$request_list['appointment_post_interview']['status'] ="Approved";
+					}else if ($appointment_post_interview->status == 'reject'){
+						$request_list['appointment_post_interview']['status'] ="Rejected";
+					}else {
+						$request_list['appointment_post_interview']['status'] ="Pending";
+					}
 				}
 
 				// print_r($request_list);
@@ -665,7 +737,13 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 					<?php foreach($request_list as $val): ?>
 					<tr>
 						<td><?= $val['name'] ?></td>
-						<td><?= $val['status'] == 'Approved' ? '<span class="txt-pending txt-green">'.$val['status'].'</span>' : '<span class="txt-pending">'.$val['status'].'</span>' ?></td>
+						<?php if($val['status'] == 'Approved'){ ?>
+						<td><span class="txt-green">Approved</span></td>
+						<?php }else if($val['status'] == 'Rejected'){ ?>
+						<td><span class="txt-red">Rejected</span></td>
+						<?php }else{ ?>
+							<td><span class="txt-pending">Pending</span></td>
+						<?php } ?>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>
