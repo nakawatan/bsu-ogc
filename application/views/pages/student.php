@@ -42,7 +42,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 				<li class="has-sub-menu"><a href="#"><i class="fas fa-file-alt"></i>Certificate of Good Moral Character</a>
 					<ul class="sub-menu">
 						<li class="has-sub-menu">
-							<a href="#">On-The-Job Training</a>
+							<a href="#">On-the-Job Training</a>
 							<div class="sub-menu">
 								<div class="text-helper first-step">
 									<p><strong>Procedure</strong></p>
@@ -553,7 +553,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 					</div>
 				</li>
 				<li class="has-sub-menu">
-					<a href="#"><i class="fas fa-briefcase"></i> On-The-Job Training Interview</a>
+					<a href="#"><i class="fas fa-briefcase"></i> On-the-Job Training Interview</a>
 					<ul class="sub-menu">
 						<li class="has-sub-menu">
 							<a href="#">Initial Interview</a>

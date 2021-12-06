@@ -24,11 +24,11 @@ $tabs_param = $this->input->get('tab');
 		<div id="tab-services" class="<?= ($tabs_param != 'forms') ? 'active' : '' ?>">
 			<ul>
 				<li><a href="<?= LINK ?>admin/request_cgmc"><i class="fas fa-file-alt"></i> Certificate of Good Moral Character</a></li>
-				<li><a href="#"><i class="fas fa-hand-holding-heart"></i> e-Counseling</a></li>
+				<li><a href="#"><i class="fas fa-hand-holding-heart"></i> Counseling</a></li>
 				<li><a href="<?= LINK ?>admin/group_counseling"><i class="fas fa-users"></i> Group Counseling</a></li>
 				<li><a href="<?= LINK ?>admin/appointments/exit_interview"><i class="fas fa-user-friends"></i> Exit Interview</a></li>
 				<li class="has-sub-menu">
-					<a href="#"><i class="fas fa-briefcase"></i> On-The-Job Training Interview</a>
+					<a href="#"><i class="fas fa-briefcase"></i> On-the-Job Training Interview</a>
 					<ul class="sub-menu">
 						<li><a href="<?= LINK ?>admin/appointments/initial_interview">Initial Interview</a></li>
 						<li><a href="<?= LINK ?>admin/appointments/post_interview">Post Interview</a></li>

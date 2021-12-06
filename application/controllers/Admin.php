@@ -40,7 +40,7 @@ class Admin extends MY_Controller
 
     public function request_cgmc()
     {
-        $data['title'] = 'Request of Certificate of Good moral character';
+        $data['title'] = 'Request for Certificate of Good Moral Character';
         $data['cgmc_ojt_pending'] = $this->model->check_cgmc_ojt_pending() > 0 ? true : false;
         $data['cgmc_ja_pending'] = $this->model->check_cgmc_ja_pending() > 0 ? true : false;
         $data['cgmc_ss_pending'] = $this->model->check_cgmc_ss_pending() > 0 ? true : false;
@@ -52,8 +52,8 @@ class Admin extends MY_Controller
 
     public function cgmc_ojt()
     {
-        $data['title'] = 'Request of Certificate of Good moral character';
-        $data['sub_heading'] = 'On-The-Job Training';
+        $data['title'] = 'Request for Certificate of Good Moral Character';
+        $data['sub_heading'] = 'On-the-Job Training';
         $result = $this->model->get_requests_cgmc_ojt();
         $data['data_table'] = $result;
         parent::view('admin/cgmc_ojt', $data);
@@ -88,8 +88,8 @@ class Admin extends MY_Controller
 
     public function cgmc_ja()
     {
-        $data['title'] = 'Request of Certificate of Good moral character';
-        $data['sub_heading'] = 'Job Application';
+        $data['title'] = 'Request for Certificate of Good Moral Character';
+        $data['sub_heading'] = 'Employment, licensure examination and further studies';
         $result = $this->model->get_requests_cgmc_ja();
         $data['data_table'] = $result;
         parent::view('admin/cgmc_ja', $data);
@@ -123,7 +123,7 @@ class Admin extends MY_Controller
 
     public function cgmc_ss()
     {
-        $data['title'] = 'Request of Certificate of Good moral character';
+        $data['title'] = 'Request for Certificate of Good Moral Character';
         $data['sub_heading'] = 'Scholarship';
         $result = $this->model->get_requests_cgmc_ss();
         $data['data_table'] = $result;
@@ -163,8 +163,8 @@ class Admin extends MY_Controller
 
     public function cgmc_tf()
     {
-        $data['title'] = 'Request of Certificate of Good moral character';
-        $data['sub_heading'] = 'Transferee';
+        $data['title'] = 'Request for Certificate of Good Moral Character';
+        $data['sub_heading'] = 'Transferring Students';
         $result = $this->model->get_requests_cgmc_tf();
         $data['data_table'] = $result;
         parent::view('admin/cgmc_tf', $data);
@@ -194,8 +194,8 @@ class Admin extends MY_Controller
 
     public function cgmc_ta()
     {
-        $data['title'] = 'Request of Certificate of Good moral character';
-        $data['sub_heading'] = 'TOSA Application';
+        $data['title'] = 'Request for Certificate of Good Moral Character';
+        $data['sub_heading'] = 'Ten Outstanding Students Awards (TOSA) Application';
         $result = $this->model->get_requests_cgmc_ta();
         $data['data_table'] = $result;
         parent::view('admin/cgmc_ta', $data);
@@ -229,8 +229,8 @@ class Admin extends MY_Controller
 
     public function cgmc_rnur()
     {
-        $data['title'] = 'Request of Certificate of Good moral character';
-        $data['sub_heading'] = 'Regional National University\'s Representative';
+        $data['title'] = 'Request for Certificate of Good Moral Character';
+        $data['sub_heading'] = 'Students who will represent the University in regional/ national/ international competitions';
         $result = $this->model->get_requests_cgmc_rnur();
         $data['data_table'] = $result;
         parent::view('admin/cgmc_rnur', $data);
@@ -411,12 +411,12 @@ class Admin extends MY_Controller
     {
         switch ($type) {
             case 'initial_interview':
-                $data['title'] = 'Initial On-The-Job Training Interview Appointments';
+                $data['title'] = 'Initial On-the-Job Training Interview Appointments';
                 $data['appointment_type'] = 'initial_interview';
                 break;
 
             case 'post_interview':
-                $data['title'] = 'Post On-The-Job Training Interview Appointments';
+                $data['title'] = 'Post On-the-Job Training Interview Appointments';
                 $data['appointment_type'] = 'post_interview';
                 break;
 
@@ -457,11 +457,11 @@ class Admin extends MY_Controller
     {
         switch ($type) {
             case 'initial_interview':
-                $data['title'] = 'Initial On-The-Job Training Interview Appointments';
+                $data['title'] = 'Initial On-the-Job Training Interview Appointments';
                 break;
 
             case 'post_interview':
-                $data['title'] = 'Post On-The-Job Training Interview Appointments';
+                $data['title'] = 'Post On-the-Job Training Interview Appointments';
                 break;
 
             case 'exit_interview':
