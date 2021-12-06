@@ -619,6 +619,10 @@ class Admin extends MY_Controller
         $data['cgmc_tf_pending'] = $this->model->get_generic_notification('request_cgmc_transferee');
         $data['cgmc_ta_pending'] = $this->model->get_generic_notification('request_cgmc_tosa_app');
         $data['cgmc_rnur_pending'] = $this->model->get_generic_notification('request_cgmc_rnu_rep');
+        $data['counseling'] = $this->model->get_appointment_list_by_type_status('group_counseling',"pending");
+        $data['exit_interview'] = $this->model->get_appointment_list_by_type_status('exit_interview',"pending");
+        $data['initial_interview'] = $this->model->get_appointment_list_by_type_status('initial_interview',"pending");
+        $data['post_interview'] = $this->model->get_appointment_list_by_type_status('post_interview',"pending");
 
         $output = json_encode($data);
 

@@ -424,6 +424,18 @@ class Admin_model extends CI_Model
         return $result;
     }
 
+    public function get_appointment_list_by_type_status($type,$status)
+    {
+        $result = $this->db->select('*')
+            ->where('type', $type)
+            ->where('status', $status)
+            ->join('students', 'students.student_id = appointment.student_id')
+            ->order_by('appointment_date', 'asc')
+            ->get('appointment')
+            ->result_array();
+        return $result;
+    }
+
     public function get_appointment_pending($date, $type)
     {
         $this->db->where('type', $type);

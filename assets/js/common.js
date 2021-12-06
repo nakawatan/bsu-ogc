@@ -945,6 +945,10 @@
 			notification_count += response.cgmc_ss_pending.length;
 			notification_count += response.cgmc_ta_pending.length;
 			notification_count += response.cgmc_tf_pending.length;
+			notification_count += response.counseling.length;
+			notification_count += response.exit_interview.length;
+			notification_count += response.initial_interview.length;
+			notification_count += response.post_interview.length;
 			$('#noti_Counter').text(notification_count);
 		}
 	});
@@ -1011,6 +1015,42 @@
 						})
 					)
 				}
+
+				$.each(response.counseling,function(k,v){
+					$div.append(
+						$('<h2>').text("Counceling(" + v.first_name + " " + v.last_name  + ")").addClass('notification-text')
+						.on('click',function(){
+							window.location.href = "/admin/group_counseling?id=" + v.id;
+						})
+					)
+				});
+
+				$.each(response.exit_interview,function(k,v){
+					$div.append(
+						$('<h2>').text("Exit Interview(" + v.first_name + " " + v.last_name  + ")").addClass('notification-text')
+						.on('click',function(){
+							window.location.href = "/admin/appointments/exit_interview?id=" + v.id;
+						})
+					)
+				});
+
+				$.each(response.initial_interview,function(k,v){
+					$div.append(
+						$('<h2>').text("Initial Interview(" + v.first_name + " " + v.last_name  + ")").addClass('notification-text')
+						.on('click',function(){
+							window.location.href = "/admin/appointments/initial_interview?id=" + v.id;
+						})
+					)
+				});
+
+				$.each(response.post_interview,function(k,v){
+					$div.append(
+						$('<h2>').text("Post Interview(" + v.first_name + " " + v.last_name  + ")").addClass('notification-text')
+						.on('click',function(){
+							window.location.href = "/admin/appointments/post_interview?id=" + v.id;
+						})
+					)
+				});
 			}
 		});
 	}

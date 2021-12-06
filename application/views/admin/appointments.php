@@ -28,14 +28,16 @@
 <div id='calendar'></div>
 
 <script>
+    var calendar;
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
+        calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
             events: {
                 url: '/admin/get_group_counceling?type=<?php echo $appointment_type; ?>',
             },
             eventClick: function(info) {
+                calendar_elem = info.el;
                 // alert('Event: ' + info.event.title);
                 // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
                 // alert('View: ' + info.event.id);
@@ -57,8 +59,39 @@
                 $('body').addClass('modal-open');
                 $('.appointment-modal').fadeIn(300);
             },
-            eventColor: '#afa726'
+            eventColor: '#afa726',
+            loading: function( isLoading ) {
+                if (isLoading == true) {
+                    //show your loader
+                } else {
+                    setTimeout(loadCurrentEvent, 3000);
+                }
+            }
         });
         calendar.render();
     });
+
+    function loadCurrentEvent(){
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParam = urlParams.get('id');
+        events = calendar.getEvents();
+        for (x = 0;x<events.length;x++) {
+            info = events[x]._def;
+            if (events[x]._def.publicId == myParam){
+                $('.requester-name').text(info.title);
+                $('.my-request-id').attr('data-request-id',info.publicId);
+                $('.gc-members').empty();
+                $('.gc-members').append(info.extendedProps.members);
+                if (info.extendedProps.status != "pending"){
+                    $('.btn-confirm').hide();
+                    $('.btn-reject').hide();
+                }else {
+                    $('.btn-confirm').show();
+                    $('.btn-reject').show();
+                }
+                $('body').addClass('modal-open');
+                $('.appointment-modal').fadeIn(300);
+            }
+        }
+    }
 </script>

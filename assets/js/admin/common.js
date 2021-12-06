@@ -1,3 +1,4 @@
+var calendar_elem;
 (function($){
     $(document).ready(function(){
         $('.table-wrap').on('click', 'tr', function(){
@@ -427,7 +428,7 @@
               }
             });
         });
-
+        
         $('.appointment-modal:not(.appointment-type)').on('click', '.btn-confirm', function(e){
             e.preventDefault();
             var form     = $(this).parents('.data-group'),
@@ -452,6 +453,8 @@
                         form.find('button').prop("disabled", true);
                         form.find('.check-icon').removeClass('hide');
                     });
+                    $(calendar_elem).find('.fc-daygrid-event-dot').css('border-color','black')
+                    location.reload();
                 }
             });
         });
@@ -465,7 +468,7 @@
                 url: '/admin/update_group_counceling_v2',
                 data: {
                     "request_id":$('.my-request-id').attr('data-request-id'),
-                    "status":"approved",
+                    "status":"reject",
                 },
                 method: 'POST',
                 success: function(response) {
@@ -480,6 +483,8 @@
                         form.find('button').prop("disabled", true);
                         form.find('.times-icon').removeClass('hide');
                     });
+                    $(calendar_elem).find('.fc-daygrid-event-dot').css('border-color','red')
+                    location.reload();
                 }
             });
         });
