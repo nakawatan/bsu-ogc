@@ -57,6 +57,7 @@ class Student_model extends CI_Model
         $qry = $this->db->select('*')
             ->where('student_id', $student_id)
             ->where('type', $type)
+            ->order_by("id", "desc")
             ->get('appointment')
             ->row();
 
@@ -71,7 +72,7 @@ class Student_model extends CI_Model
 
     public function check_duplicate_appointment($student_id, $type){
         $result = false;
-        $this->db->where('student_id', $student_id);
+        $this->db->where('student_id', $student_id)->where('status !=', 'reject');
         $this->db->where('type', $type);
         $result_user = $this->db->get('appointment')->row_array();
         if(isset($result_user) && COUNT($result_user) > 0){

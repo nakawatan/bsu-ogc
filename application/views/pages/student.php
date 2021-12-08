@@ -519,7 +519,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 				<li class="has-sub-menu">
 					<a href="#"><i class="fas fa-users"></i> Group Counseling</a>
 					<div class="sub-menu text-center">
-					<?php if($appointment_group_counseling) : ?>
+					<?php if($appointment_group_counseling && $appointment_group_counseling->status != "reject") : ?>
 						<h3>Appointment:</h3>
 						<p><?= date('F, d Y. l \a\t g:i a', strtotime($appointment_group_counseling->appointment_date)); ?></p>
 					<?php else: ?>
@@ -530,7 +530,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 				<li class="has-sub-menu">
 					<a href="#"><i class="fas fa-user-friends"></i> Exit Interview</a>
 					<div class="sub-menu text-center">
-					<?php if($appointment_exit_interview) : ?>
+					<?php if($appointment_exit_interview && $appointment_exit_interview->status != "reject") : ?>
 						<h3>Appointment:</h3>
 						<p><?= date('F, d Y. l \a\t g:i a', strtotime($appointment_exit_interview->appointment_date)); ?></p>
 					<?php else: ?>
@@ -559,7 +559,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 
 
 
-							<?php if($appointment_initial_interview) : ?>
+							<?php if($appointment_initial_interview && $appointment_initial_interview->status != "reject") : ?>
 								<h3>Appointment:</h3>
 								<p><?= date('F, d Y. l \a\t g:i a', strtotime($appointment_initial_interview->appointment_date)); ?></p>
 							<?php else: ?>
@@ -586,7 +586,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 	-->
 
 
-							<?php if($appointment_post_interview) : ?>
+							<?php if($appointment_post_interview && $appointment_post_interview->status != "reject") : ?>
 								<h3>Appointment:</h3>
 								<p><?= date('F, d Y. l \a\t g:i a', strtotime($appointment_post_interview->appointment_date)); ?></p>
 							<?php else: ?>
