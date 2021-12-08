@@ -4,9 +4,15 @@
             <div class="modal-content">
                 <!--  -->
                 <h2 class="text-center">Group Counseling Appointments</h2>
-                <div data-request-id="" class="my-request-id d-flex">
-                    <div>
+                <div data-request-id="" class="my-request-id">
+                    <div class="mb-5 form-group">
                         <label>Requestor : </label> <span class="requester-name"></span>
+                    </div>
+                    <div class="mb-5 form-group">
+                        <label>Date : </label> <span class="requested-date"></span>
+                    </div>
+                    <div class="mb-5 form-group">
+                        <label>Time : </label> <span class="requested-time"></span>
                     </div>
                     </br>
                     <div class="status-icon">
@@ -50,6 +56,11 @@
                 $('.requester-name').text(info.event.title);
                 $('.my-request-id').attr('data-request-id',info.event.id);
                 console.log(info.event.members);
+
+                appointment_date = new Date(info.event.extendedProps.appointment_date);
+
+                $(".requested-date").text(appointment_date.toDateString());
+                $(".requested-time").text(appointment_date.toLocaleTimeString());
                 $('.gc-members').empty();
                 $('.gc-members').append(info.event.extendedProps.members);
                 if (info.event.extendedProps.status != "pending"){
@@ -91,6 +102,11 @@
                     $('.btn-confirm').show();
                     $('.btn-reject').show();
                 }
+
+                appointment_date = new Date(info.extendedProps.appointment_date);
+
+                $(".requested-date").text(appointment_date.toDateString());
+                $(".requested-time").text(appointment_date.toLocaleTimeString());
                 $('body').addClass('modal-open');
                 $('.appointment-modal').fadeIn(300);
             }
