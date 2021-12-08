@@ -37,6 +37,7 @@ define('TITLE', 'Office of Guidance and Counseling');
     <link rel="stylesheet" type="text/css" href="<?= ASSETS ?>css/fontawesome.min.css">
 
     <!-- <script src="https://kit.fontawesome.com/c795f7aacf.js" crossorigin="anonymous"></script> -->
+    <!-- <meta name="google-signin-client_id" content="775340702878-4saa4ttuvpgmlvlhnsdh3himpqb50j8h.apps.googleusercontent.com"> -->
     <meta name="google-signin-client_id" content="719609387588-js0c2geb2ejsnkca52n6n1dcsupgb7kd.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
@@ -50,6 +51,7 @@ define('TITLE', 'Office of Guidance and Counseling');
     }
        
     /* A CIRCLE LIKE BUTTON IN THE TOP MENU. */
+    
     #noti_Button {
         width:22px;
         height:22px;
@@ -57,10 +59,11 @@ define('TITLE', 'Office of Guidance and Counseling');
         border-radius:50%;
         -moz-border-radius:50%; 
         -webkit-border-radius:50%;
-        background:#FFF;
+        /* background:#FFF; */
         margin:-3px 10px 0 10px;
         cursor:pointer;
     }
+    
         
     /* THE POPULAR RED NOTIFICATIONS COUNTER. */
     #noti_Counter {
@@ -151,7 +154,7 @@ define('TITLE', 'Office of Guidance and Counseling');
                     <div id="noti_Counter"></div>   <!--SHOW NOTIFICATIONS COUNT.-->
                     
                     <!--A CIRCLE LIKE BUTTON TO DISPLAY NOTIFICATION DROPDOWN.-->
-                    <div id="noti_Button"></div>    
+                    <div id="noti_Button"><i class="fas fa-bell"></i></div>    
 
                     <!--THE NOTIFICAIONS DROPDOWN BOX.-->
                     <div id="notifications">

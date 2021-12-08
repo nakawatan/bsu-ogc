@@ -103,6 +103,11 @@ class Student extends MY_Controller
 		$data['default_available_slots']	= $this->model->count_gc_appointment(date('Y-m-d'));
 
 		$data['appointment_exit_interview'] = $this->model->get_appointment($data['student_id'], 'exit_interview');
+		$data['exit_form'] = isset($data['appointment_exit_interview']) ? $data['appointment_exit_interview']->exit_form : '';
+		$data['exit_questionnaire'] = isset($data['appointment_exit_interview']) ? $data['appointment_exit_interview']->exit_questionnaire : '';
+		$data['registration_form'] = isset($data['appointment_exit_interview']) ? $data['appointment_exit_interview']->registration_form : '';
+		$data['certificate_of_completion'] = isset($data['appointment_exit_interview']) ? $data['appointment_exit_interview']->certificate_of_completion : '';
+
 		$data['appointment_initial_interview'] = $this->model->get_appointment($data['student_id'], 'initial_interview');
 		$data['appointment_post_interview'] = $this->model->get_appointment($data['student_id'], 'post_interview');
 
@@ -789,8 +794,19 @@ class Student extends MY_Controller
 		$this->form_validation->set_rules('date', 'Date Schedule', 'trim|required|callback_validate_date');
 		$this->form_validation->set_rules('time', 'Time Schedule', 'required|callback_available_time');
 
+		$data['coc-form'] = $this->validate_file('coc-form');
+		$data['reg-form'] = $this->validate_file('reg-form');
+		$data['exit-questionnaire'] = $this->validate_file('exit-questionnaire');
+		$data['exit-form'] = $this->validate_file('exit-form');
+
 		if($this->form_validation->run()){
+			$user_folder = encodeFolder($user['student_id']);
+			$directory = 'assets/uploads/docs/'.$user_folder.'/';
 			$time = $this->input->post('time');
+			$upload_coc_form = $this->media_upload($directory, 'coc-form');
+			$upload_reg_form = $this->media_upload($directory, 'reg-form');
+			$upload_exit_form = $this->media_upload($directory, 'exit-form');
+			$upload_q_form = $this->media_upload($directory, 'exit-questionnaire');
 			$time_arr = explode(' ', $time);
 			$time_format = date('H:i:s', strtotime($time_arr[0].' '.$time_arr[1]));
 			$date = $this->input->post('date').' '.$time_format;
@@ -811,7 +827,11 @@ class Student extends MY_Controller
 					'appointment_date' => $date,
 					'type' => $type,
 					'status' => 'pending',
-					'members' => $members_list
+					'members' => $members_list,
+					'certificate_of_completion' => $upload_coc_form['file_name'],
+					'registration_form' => $upload_reg_form['file_name'],
+					'exit_questionnaire' => $upload_q_form['file_name'],
+					'exit_form' => $upload_exit_form['file_name']
 				);
 				$this->model->store_appointment($form_data);	
 				$output = '{"status": true}';

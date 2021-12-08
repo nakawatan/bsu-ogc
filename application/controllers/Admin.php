@@ -342,6 +342,14 @@ class Admin extends MY_Controller
             $x['id'] = $a["id"];
             $x['members'] = $a['members'];
             $x['status'] = $a['status'];
+            $x['exit_form']=$a['exit_form'];
+            $x['exit_form_url']=base_url('assets/uploads/docs/').encodeFolder($a['student_id']).'/'.$a['exit_form'];
+            $x['exit_questionnaire']=$a['exit_questionnaire'];
+            $x['exit_questionnaire_url']=base_url('assets/uploads/docs/').encodeFolder($a['student_id']).'/'.$a['exit_questionnaire'];
+            $x['registration_form']=$a['registration_form'];
+            $x['registration_form_url']=base_url('assets/uploads/docs/').encodeFolder($a['student_id']).'/'.$a['registration_form'];
+            $x['certificate_of_completion']=$a['certificate_of_completion'];
+            $x['certificate_of_completion_url']=base_url('assets/uploads/docs/').encodeFolder($a['student_id']).'/'.$a['certificate_of_completion'];
 
             if ($a['status'] == "approved"){
                 $x['color'] = "#378006";

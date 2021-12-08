@@ -117,14 +117,16 @@
 		$('.confirm-modal').on('click', '.btn-confirm', function(){
 			var $this = $('.confirm-modal').data('form'),
 				form = $($this),
-				formData = form.serialize();
-
+				// formData = form.serialize();
+				formData = new FormData($('#form-date-time-2')[0]);
+			
 			$('.error').remove();
 			// console.log(formData);
 			$.ajax({
                 url: "./student/set_appointment",
                 data: formData,
-                dataType: "json",
+				contentType: false,
+				processData: false,
 				method: 'POST',
 				success: function(response) {
 					if(response.error){
@@ -202,6 +204,38 @@
 			e.preventDefault();
 			// $('.confirm-modal').attr('data-form', '#form-date-time-2');
 			// $('.confirm-modal').fadeIn(300);
+			appointmentType=$('#form-date-time-2 input[name=appointment-type]').val() ;
+			if (appointmentType== "exit_interview") {
+				if ($('#exit-form')[0].files.length == 0 || $('#exit-questionnaire')[0].files.length == 0) {
+					Swal.fire({
+						title: 'Error!',
+						text: 'Exit Form and Questionnaire cannot be empty.',
+						icon: 'error',
+						showConfirmButton: true,
+					});
+					return;
+				}
+			}else if (appointmentType == "initial_interview") {
+				if ($('#reg-form')[0].files.length == 0) {
+					Swal.fire({
+						title: 'Error!',
+						text: 'Registration Form cannot be empty.',
+						icon: 'error',
+						showConfirmButton: true,
+					});
+					return;
+				}
+			}else {
+				if ($('#coc-form')[0].files.length == 0) {
+					Swal.fire({
+						title: 'Error!',
+						text: 'Certificate of Completion cannot be empty.',
+						icon: 'error',
+						showConfirmButton: true,
+					});
+					return;
+				}
+			}
 			var form = $(this),
 				formData = form.serialize();
 			$.ajax({
@@ -751,7 +785,23 @@
 
 		$('.btn-appointment:not([data-appointment=group_counseling])').on('click', function(e){
 			var appointment = $(this).data('appointment');
+			$('.exit_interview_forms input[type="file"]').val("");
+			$('.initial_interview_forms input[type="file"]').val("");
+			$('.post_interview_forms input[type="file"]').val("");
+
+			$(".exit_interview_forms").hide();
+			$(".initial_interview_forms").hide();
+			$(".post_interview_forms").hide();
 			$('#form-date-time-2 input[name=appointment-type]').val(appointment);
+			if (appointment == "initial_interview"){
+				$(".initial_interview_forms").show();
+			}
+			if (appointment == "post_interview"){
+				$(".post_interview_forms").show();
+			}
+			if (appointment == "exit_interview"){
+				$(".exit_interview_forms").show();
+			}
 			$('body').addClass('modal-open');
 			$('.default-date-modal').fadeIn(300);
 		});

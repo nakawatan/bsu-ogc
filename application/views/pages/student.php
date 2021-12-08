@@ -530,20 +530,6 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 				<li class="has-sub-menu">
 					<a href="#"><i class="fas fa-user-friends"></i> Exit Interview</a>
 					<div class="sub-menu text-center">
-
-					<!-- Bale kelangan po muna ma-aaprove itong requirement bago sya makapag set ng appointment. 
-					Parang katulad po sya ng Certificate of Good moral, Yung button po nito magiging "Set Appointment" once approve na
-
-					<div class="form-group">
-											<div class="label"><strong>Exit Interview Form</strong> <small>Signed by Parent/Guardian, Adviser/Program Chair, and College Dean</small> </div>
-											<input type="file" name="tosa_app_proof_of_app_of_ha_file" id="tosa_app_proof_of_app_of_ha_file" <?= $tosa_app_proof_of_app_of_ha_file && $tosa_app_proof_of_app_of_ha_status != 'reject' ? 'disabled' : '' ?>/>
-											<label class="btn-attach" for="tosa_app_proof_of_app_of_ha_file" title="Attach file here"><?= $tosa_app_registration_file ? $tosa_app_proof_of_app_of_ha_file : 'Attach file here' ?></label>	
-											<?php if($tosa_app_proof_of_app_of_ha_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
-											<?php if($tosa_app_proof_of_app_of_ha_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
-										</div> 
-					-->
-
-
 					<?php if($appointment_exit_interview) : ?>
 						<h3>Appointment:</h3>
 						<p><?= date('F, d Y. l \a\t g:i a', strtotime($appointment_exit_interview->appointment_date)); ?></p>
@@ -796,6 +782,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 					</div>
 				</div>
 				<div class="form-group no-flex">
+					
 					<div>
 						<label for="time">Select Time</label>
 						<div class="text-center">
@@ -831,7 +818,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 	<div class="modal-wrap">
 		<div class="modal-box">
 			<div class="modal-header">SET APPOINTMENT</div>
-			<form method="post" id="form-date-time-2">
+			<form method="post" id="form-date-time-2" enctype="multipart/form-data">
 				<input type="hidden" name="appointment-type">
 				<div class="form-group no-flex">
 					<label for="date-2">Select Date</label>
@@ -842,6 +829,34 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 				</div>
 				<div class="form-group d-flex">
 					<div>
+						<!-- Bale kelangan po muna ma-aaprove itong requirement bago sya makapag set ng appointment. 
+						Parang katulad po sya ng Certificate of Good moral, Yung button po nito magiging "Set Appointment" once approve na -->
+						<div class="exit_interview_forms">
+							<div class="form-group">
+								<div class="label"><strong>Exit Form</strong> <small>Signed by Parent/Guardian, Adviser/Program Chair, and College Dean</small> </div>
+								<input type="file" name="exit-form" id="exit-form"/>
+								<label class="btn-attach" for="exit-form" title="Attach file here">Attach file here</label>
+							</div>
+							<div class="form-group">
+								<div class="label"><strong>Exit Questionnaire</strong> <small></small> </div>
+								<input type="file" name="exit-questionnaire" id="exit-questionnaire"/>
+								<label class="btn-attach" for="exit-questionnaire" title="Attach file here">Attach file here</label>
+							</div> 
+						</div>
+						<div class="initial_interview_forms">
+							<div class="form-group">
+								<div class="label"><strong>Registration Form</strong> <small>(Current semester)</small> </div>
+								<input type="file" name="reg-form" id="reg-form"/>
+								<label class="btn-attach" for="reg-form" title="Attach file here">Attach file here</label>
+							</div>
+						</div>
+						<div class="post_interview_forms">
+							<div class="form-group">
+								<div class="label"><strong>Certificate of Completion</strong> <small></small> </div>
+								<input type="file" name="coc-form" id="coc-form"/>
+								<label class="btn-attach" for="coc-form" title="Attach file here">Attach file here</label>
+							</div>
+						</div>
 						<label for="time-2">Select Time</label>
 						<div class="text-center">
 							<select name="time" id="time-2">
