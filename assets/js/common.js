@@ -118,7 +118,7 @@
 			var $this = $('.confirm-modal').data('form'),
 				form = $($this),
 				// formData = form.serialize();
-				formData = new FormData($('#form-date-time-2')[0]);
+				formData = new FormData(form[0]);
 			
 			$('.error').remove();
 			// console.log(formData);
@@ -1107,6 +1107,17 @@
 
 	$('.btn-add-member').on('click',function(){
 		if ($("#gc-member").val() == "") {
+			return;
+		}
+
+		if ($(".gc-members").length == 5) {
+			Swal.fire({
+				title: 'Error!',
+				text: 'Maximum of 5 members only.',
+				icon: 'error',
+				showConfirmButton: false,
+				  timer: 1500
+			})
 			return;
 		}
 		$(".gc-member-list").append(
