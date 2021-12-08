@@ -83,6 +83,19 @@ class Student_model extends CI_Model
         return $result;
     }
 
+    public function check_day_appointment($date, $type){
+        $result = false;
+        $this->db->where('appointment_date', $date)->where('status !=', 'reject');
+        // $this->db->where('type', $type);
+        $result_user = $this->db->get('appointment');
+        if(isset($result_user) && $result_user->num_rows()> 1){
+            $result = false;
+        }else{
+            $result = true;
+        }
+        return $result;
+    }
+
     public function check_available_time($date){
         $result = false;
         $this->db->where('appointment_date ==', date('Y-m-d h:i:s', strtotime($time)));

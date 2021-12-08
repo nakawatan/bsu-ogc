@@ -874,6 +874,7 @@ class Student extends MY_Controller
 			$time_format = date('H:i:s', strtotime($time_arr[0].' '.$time_arr[1]));
 			$date = $this->input->post('date').' '.$time_format;
 			$type = $this->input->post('appointment-type');
+			$date_occupied = $this->model->check_day_appointment($date, $type);
 			$no_dup = $this->model->check_duplicate_appointment($user['student_id'], $type);
 			$disable_month = $this->model->get_option('disable_month');
 			$disable_day = $this->model->get_option('disable_day');
@@ -888,10 +889,15 @@ class Student extends MY_Controller
 			}else{
 				$no_dup = $this->model->check_duplicate_appointment($user['student_id'], $type);
 
-				if($no_dup){
+				if($no_dup && $date_occupied){
 					$output = '{"status": true}';
 				}else{
-					$output = '{"error": true, "message": "[ERROR] : You still have pending appointment. Cant add multiple request."}';
+					if (!$no_dup) {
+						$output = '{"error": true, "message": "[ERROR] : You still have pending appointment. Cant add multiple request."}';
+					}else {
+						$output = '{"error": true, "message": "[ERROR] : Time is already taken for this day. Please select another date or time slot."}';
+					}
+					
 				}
 			}
 			
