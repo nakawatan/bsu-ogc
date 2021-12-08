@@ -342,6 +342,7 @@ class Admin extends MY_Controller
             $x['id'] = $a["id"];
             $x['members'] = $a['members'];
             $x['status'] = $a['status'];
+            $x['appointment_date'] = $a['appointment_date'];
             $x['exit_form']=$a['exit_form'];
             $x['exit_form_url']=base_url('assets/uploads/docs/').encodeFolder($a['student_id']).'/'.$a['exit_form'];
             $x['exit_questionnaire']=$a['exit_questionnaire'];

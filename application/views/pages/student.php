@@ -199,7 +199,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 								<li>Application Form of Scholarship.</li>
 								<li>Registration Form (Current Semester).</li>
 								<li>Copy of Grades (Previuos Semester).</li>
-								<li>Pay a fee of thirty pesos (Php 30.00) at the Cashier's Office. <a href = "https://epaymentportal.landbank.com/pay1.php?code=SGlpYUNNT0g4ZXVvRCUyQmJ0M09NMG02b0JTNHN0VFhCSnhLVFhSSzBoN29JPQ%3D%3D"> Here </a> Be sure to secure the official receipt.</li>
+								<li>Pay a fee of thirty pesos (Php 30.00) at the <a href = "https://epaymentportal.landbank.com/pay1.php?code=SGlpYUNNT0g4ZXVvRCUyQmJ0M09NMG02b0JTNHN0VFhCSnhLVFhSSzBoN29JPQ%3D%3D" style="color:blue">Cashier's Office.</a> Be sure to secure a proof of payment. </li>
 								<li>Secure documentary stamp at the BIR.</li>
 							</ol>
 						<p class="text-right">
@@ -795,10 +795,10 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 					</div>
 				</div>
 				<div class="no-flex">
-					<!-- <label for="available-slots">Available Slots :</label>
+					<label for="available-slots">Available Slots :</label>
 					<div class="text-center">
 						<input type="text" name="available-slots" value="<?= max_slots() - $default_available_slots; ?> Slots" readonly>
-					</div> -->
+					</div>
 					<div class="no-flex">
 						<label for="available-slots">Members :</label>
 						<div class="gc-member-list">

@@ -8,6 +8,12 @@
                     <div class="mb-5 form-group">
                         <label>Requestor : </label> <span class="requester-name"></span>
                     </div>
+                    <div class="mb-5 form-group">
+                        <label>Date : </label> <span class="requested-date"></span>
+                    </div>
+                    <div class="mb-5 form-group">
+                        <label>Time : </label> <span class="requested-time"></span>
+                    </div>
                     </br>
                     <div class="form-group exit-form-group">
                         <div class="label"><strong>Exit Form</strong></div>
@@ -76,6 +82,11 @@
                 $('.exit-questionnaire-group').hide();
                 $('.registration-form-group').hide();
                 $('.coc-form-group').hide();
+
+                appointment_date = new Date(info.event.extendedProps.appointment_date);
+
+                $(".requested-date").text(appointment_date.toDateString());
+                $(".requested-time").text(appointment_date.toLocaleTimeString());
 
                 if (info.event.extendedProps.exit_form != "") {
                     $('.exit-form-group').show();
@@ -167,6 +178,11 @@
                 $('.exit-questionnaire-group').hide();
                 $('.registration-form-group').hide();
                 $('.coc-form-group').hide();
+
+                appointment_date = new Date(info.extendedProps.appointment_date);
+
+                $(".requested-date").text(appointment_date.toDateString());
+                $(".requested-time").text(appointment_date.toLocaleTimeString());
 
                 if (info.extendedProps.exit_form != "") {
                     $('.exit-form-group').show();
