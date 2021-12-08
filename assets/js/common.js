@@ -1110,7 +1110,7 @@
 			return;
 		}
 
-		if ($(".gc-members").length == 5) {
+		if ($(".gc-members").length == 4) {
 			Swal.fire({
 				title: 'Error!',
 				text: 'Maximum of 5 members only.',
