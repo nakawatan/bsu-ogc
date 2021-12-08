@@ -18,11 +18,11 @@
                         <label class="btn-attach exit-questionnaire" for="exit-questionnaire" title="Attach file here"></label>
                     </div>
                     <div class="form-group registration-form-group">
-                        <div class="label"><strong>Exit Form</strong></div>
+                        <div class="label"><strong>Registration Form</strong></div>
                         <label class="btn-attach registration-form" for="registration-form" title="Attach file here"></label>
                     </div>
                     <div class="form-group coc-form-group">
-                        <div class="label"><strong>Exit Form</strong></div>
+                        <div class="label"><strong>Certificate of Completion</strong></div>
                         <label class="btn-attach coc-form" for="coc-form" title="Attach file here"></label>
                     </div>
                 </div>
@@ -162,6 +162,51 @@
                 }
                 $('body').addClass('modal-open');
                 $('.appointment-modal').fadeIn(300);
+
+                $('.exit-form-group').hide();
+                $('.exit-questionnaire-group').hide();
+                $('.registration-form-group').hide();
+                $('.coc-form-group').hide();
+
+                if (info.extendedProps.exit_form != "") {
+                    $('.exit-form-group').show();
+                    $(".exit-form").text(info.extendedProps.exit_form);
+                }
+
+                if (info.extendedProps.exit_questionnaire != "") {
+                    $('.exit-questionnaire-group').show();
+                    $(".exit-questionnaire").text(info.extendedProps.exit_questionnaire);
+                }
+
+                if (info.extendedProps.registration_form != "") {
+                    $('.registration-form-group').show();
+                    $(".registration-form").text(info.extendedProps.registration_form);
+                }
+
+                if (info.extendedProps.certificate_of_completion != "") {
+                    $('.coc-form-group').show();
+                    $(".coc-form").text(info.extendedProps.certificate_of_completion);
+                }
+
+                $('.exit-form').unbind('click').on('click',function(){
+                    $('.view-file-modal').fadeIn(300);
+                    $('.view-file-modal iframe').attr('src',info.extendedProps.exit_form_url);
+                });
+
+                $('.exit-questionnaire').unbind('click').on('click',function(){
+                    $('.view-file-modal').fadeIn(300);
+                    $('.view-file-modal iframe').attr('src',info.extendedProps.exit_questionnaire_url);
+                });
+
+                $('.registration-form').unbind('click').on('click',function(){
+                    $('.view-file-modal').fadeIn(300);
+                    $('.view-file-modal iframe').attr('src',info.extendedProps.registration_form_url);
+                });
+
+                $('.coc-form').unbind('click').on('click',function(){
+                    $('.view-file-modal').fadeIn(300);
+                    $('.view-file-modal iframe').attr('src',info.extendedProps.certificate_of_completion_url);
+                });
             }
         }
     }
