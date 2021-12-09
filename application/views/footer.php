@@ -107,10 +107,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
         // console.log(disable_day);
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="/assets/js/jquery.js"></script>
     <script src="<?= ASSETS ?>js/plugins/print.min.js"></script>
     <!-- <script src="<?= ASSETS ?>js/plugins/jquery.datetimepicker.full.js"></script> -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/assets/js/jquery-ui.js"></script>
     <script src="<?= ASSETS ?>js/plugins/sweetalert.min.js"></script>
     <script src="<?= ASSETS ?>js/plugins/swiper.min.js"></script>
     <script src="<?= ASSETS ?>js/common.js"></script>
