@@ -31,6 +31,11 @@
                         <div class="label"><strong>Certificate of Completion</strong></div>
                         <label class="btn-attach coc-form" for="coc-form" title="Attach file here"></label>
                     </div>
+
+                    <div class="form-group">
+                        <div class="label"><strong>Remarks</strong></div>
+                        <input type="text" name="txt-remarks" class="txt-remarks" style="border: none; border-bottom: 2px solid red;"/>
+                    </div>
                 </div>
                 <div class="text-right">
                     <button class="btn btn-green btn-small btn-confirm" type="button">Confirm</button>
@@ -65,13 +70,17 @@
                 info.el.style.borderColor = 'red';
                 $('.requester-name').text(info.event.title);
                 $('.my-request-id').attr('data-request-id',info.event.id);
-                console.log(info.event.members);
+                
                 $('.gc-members').empty();
                 $('.gc-members').append(info.event.extendedProps.members);
                 if (info.event.extendedProps.status != "pending"){
+                    $('.txt-remarks').val(info.event.extendedProps.remarks);
+                    $('.txt-remarks').attr('disabled','disabled');
                     $('.btn-confirm').hide();
                     $('.btn-reject').hide();
                 }else {
+                    $('.txt-remarks').val("");
+                    $('.txt-remarks').removeAttr('disabled');
                     $('.btn-confirm').show();
                     $('.btn-reject').show();
                 }
@@ -165,9 +174,14 @@
                 $('.gc-members').empty();
                 $('.gc-members').append(info.extendedProps.members);
                 if (info.extendedProps.status != "pending"){
+                    $('.txt-remarks').val(info.extendedProps.remarks);
+                    $('.txt-remarks').attr('disabled','disabled');
+
                     $('.btn-confirm').hide();
                     $('.btn-reject').hide();
                 }else {
+                    $('.txt-remarks').val("");
+                    $('.txt-remarks').removeAttr('disabled');
                     $('.btn-confirm').show();
                     $('.btn-reject').show();
                 }

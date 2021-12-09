@@ -343,6 +343,7 @@ class Admin extends MY_Controller
             $x['members'] = $a['members'];
             $x['status'] = $a['status'];
             $x['appointment_date'] = $a['appointment_date'];
+            $x['remarks'] = $a['remarks'];
             $x['exit_form']=$a['exit_form'];
             $x['exit_form_url']=base_url('assets/uploads/docs/').encodeFolder($a['student_id']).'/'.$a['exit_form'];
             $x['exit_questionnaire']=$a['exit_questionnaire'];
@@ -370,9 +371,10 @@ class Admin extends MY_Controller
     function update_group_counceling_v2(){
         $id = $this->input->post('request_id');
         $status = $this->input->post('status');
+        $remarks = $this->input->post('remarks');
 
         if(isset($id) && !empty($id)){
-            $request_update[] = ['id' => $id, 'status' => $status];
+            $request_update[] = ['id' => $id, 'status' => $status, 'remarks' => $remarks];
             $this->model->update_batch_appointment($request_update);
         }
 

@@ -23,6 +23,11 @@
                 <label>Members: </label>
                 <div class="gc-members">
                 </div>
+
+                <div class="form-group">
+                    <div class="label"><strong>Remarks</strong></div>
+                    <input type="text" name="txt-remarks" class="txt-remarks" style="border: none; border-bottom: 2px solid red;"/>
+                </div>
                 <div class="text-right">
                     <button class="btn btn-green btn-small btn-confirm" type="button">Confirm</button>
                     <button class="btn btn-red btn-small btn-reject" type="button">Reject</button>
@@ -64,9 +69,13 @@
                 $('.gc-members').empty();
                 $('.gc-members').append(info.event.extendedProps.members);
                 if (info.event.extendedProps.status != "pending"){
+                    $('.txt-remarks').val(info.event.extendedProps.remarks);
+                    $('.txt-remarks').attr('disabled','disabled');
                     $('.btn-confirm').hide();
                     $('.btn-reject').hide();
                 }else {
+                    $('.txt-remarks').val("");
+                    $('.txt-remarks').removeAttr('disabled');
                     $('.btn-confirm').show();
                     $('.btn-reject').show();
                 }
@@ -96,9 +105,13 @@
                 $('.gc-members').empty();
                 $('.gc-members').append(info.extendedProps.members);
                 if (info.extendedProps.status != "pending"){
+                    $('.txt-remarks').val(info.extendedProps.remarks);
+                    $('.txt-remarks').attr('disabled','disabled');
                     $('.btn-confirm').hide();
                     $('.btn-reject').hide();
                 }else {
+                    $('.txt-remarks').val("");
+                    $('.txt-remarks').removeAttr('disabled');
                     $('.btn-confirm').show();
                     $('.btn-reject').show();
                 }

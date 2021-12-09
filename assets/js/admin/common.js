@@ -439,6 +439,7 @@ var calendar_elem;
                 data: {
                     "request_id":$('.my-request-id').attr('data-request-id'),
                     "status":"approved",
+                    "remarks":$('.txt-remarks').val()
                 },
                 method: 'POST',
                 success: function(response) {
@@ -469,6 +470,7 @@ var calendar_elem;
                 data: {
                     "request_id":$('.my-request-id').attr('data-request-id'),
                     "status":"reject",
+                    "remarks":$('.txt-remarks').val()
                 },
                 method: 'POST',
                 success: function(response) {
