@@ -150,7 +150,7 @@ define('TITLE', 'Office of Guidance and Counseling');
                 <div class="btn-settings">
                     <a href="<?= LINK ?>admin/settings"><i class="fas fa-cog"></i> Settings</a>
                 </div>
-                <li id="noti_Container">
+                <a id="noti_Container">
                     <div id="noti_Counter"></div>   <!--SHOW NOTIFICATIONS COUNT.-->
                     
                     <!--A CIRCLE LIKE BUTTON TO DISPLAY NOTIFICATION DROPDOWN.-->
@@ -162,7 +162,7 @@ define('TITLE', 'Office of Guidance and Counseling');
                         <div style="height:300px;"></div>
                         <div class="seeAll"><a href="#">See All</a></div>
                     </div>
-                </li>
+                </a>
                 <?php endif; ?>
                 <div class="btn-logout">
                     <a href="<?= LINK ?>logout"><i class="fas fa-sign-out-alt"></i></a>

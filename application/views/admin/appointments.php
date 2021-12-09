@@ -4,37 +4,33 @@
             <div class="modal-content">
                 <!--  -->
                 <h2 class="text-center div-title">Group Counseling Appointments</h2>
+                <h4 class="text-center"><i class="requested-date"></i></h4>
+                <h4><span class="requested-time"></span></h4>
                 <div data-request-id="" class="my-request-id">
-                    <div class="mb-5 form-group">
-                        <label>Requestor : </label> <span class="requester-name"></span>
-                    </div>
-                    <div class="mb-5 form-group">
-                        <label>Date : </label> <span class="requested-date"></span>
-                    </div>
-                    <div class="mb-5 form-group">
-                        <label>Time : </label> <span class="requested-time"></span>
+                    <div class="mb-5 form-group" style="margin-left: 20%;">
+                        <label>Requestor : </label> &nbsp;<label class="requester-name"></label>
                     </div>
                     </br>
                     <div class="form-group exit-form-group">
-                        <div class="label"><strong>Exit Form</strong></div>
+                        <div class="label"><strong>Exit Form : </strong></div>
                         <label class="btn-attach exit-form" for="exit-form" title="Attach file here"></label>
                     </div>
                     <div class="form-group exit-questionnaire-group">
-                        <div class="label"><strong>Exit Questionnaire</strong></div>
+                        <div class="label"><strong>Exit Questionnaire : </strong></div>
                         <label class="btn-attach exit-questionnaire" for="exit-questionnaire" title="Attach file here"></label>
                     </div>
                     <div class="form-group registration-form-group">
-                        <div class="label"><strong>Registration Form</strong></div>
+                        <div class="label"><strong>Registration Form : </strong></div>
                         <label class="btn-attach registration-form" for="registration-form" title="Attach file here"></label>
                     </div>
                     <div class="form-group coc-form-group">
-                        <div class="label"><strong>Certificate of Completion</strong></div>
+                        <div class="label"><strong>Certificate of Completion : </strong></div>
                         <label class="btn-attach coc-form" for="coc-form" title="Attach file here"></label>
                     </div>
 
                     <div class="form-group">
-                        <div class="label"><strong>Remarks</strong></div>
-                        <input type="text" name="txt-remarks" class="txt-remarks" style="border: none; border-bottom: 2px solid red;"/>
+                        <div class="label"><strong>Remarks : </strong></div>
+                        <input type="text" name="txt-remarks" class="txt-remarks" style="border: none; border-bottom: 2px solid red; width:85%;"/>
                     </div>
                 </div>
                 <div class="text-right">

@@ -455,7 +455,7 @@ var calendar_elem;
                         form.find('.check-icon').removeClass('hide');
                     });
                     $(calendar_elem).find('.fc-daygrid-event-dot').css('border-color','black')
-                    location.reload();
+                    location.href=window.location.pathname;
                 }
             });
         });
@@ -486,7 +486,7 @@ var calendar_elem;
                         form.find('.times-icon').removeClass('hide');
                     });
                     $(calendar_elem).find('.fc-daygrid-event-dot').css('border-color','red')
-                    location.reload();
+                    location.href=window.location.pathname;
                 }
             });
         });

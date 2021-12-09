@@ -4,25 +4,28 @@
             <div class="modal-content">
                 <!--  -->
                 <h2 class="text-center">Group Counseling Appointments</h2>
+                <h4 class="text-center"><i class="requested-date"></i></h4>
+                <h4><span class="requested-time"></span></h4>
                 <div data-request-id="" class="my-request-id">
-                    <div class="mb-5 form-group">
-                        <label>Requestor : </label> <span class="requester-name"></span>
-                    </div>
-                    <div class="mb-5 form-group">
-                        <label>Date : </label> <span class="requested-date"></span>
-                    </div>
-                    <div class="mb-5 form-group">
-                        <label>Time : </label> <span class="requested-time"></span>
-                    </div>
-                    </br>
-                    <div class="status-icon">
-                        <!-- <span class="times-icon txt-red"><i class="fas fa-times visible" aria-hidden="true"></i></span>
-                        <span class="check-icon txt-green"><i class="fas fa-check" aria-hidden="true"></i></span> -->
-                    </div>
                 </div>
-                <label>Members: </label>
-                <div class="gc-members">
-                </div>
+                <!-- <div class="mb-5 form-group" style="margin-left: 20%;">
+                    <label> </label> <label class="requester-name"></label>
+                </div> -->
+                <!-- <div class="form-group" style="margin-left: 20%;">
+                    <label>Members: </label>
+                    <label class="">
+                    </label>
+                </div> -->
+                <table style="text-align:left;border: none !important; width:80%;margin-left:20%;">
+                    <tr style="text-align:left;border: none !important;">
+                        <th style="border-bottom:0px !important;width: 100px;">Requestor :</th>
+                        <th class="requester-name" style="border-bottom:0px !important">test Name</th>
+                    </tr>
+                    <tr>
+                        <th style="vertical-align: top;border-bottom:0px !important">Members : </th>
+                        <th class="gc-members" style="vertical-align: top;border-bottom:0px !important"></th>
+                    </tr>
+                </table>
 
                 <div class="form-group">
                     <div class="label"><strong>Remarks</strong></div>
