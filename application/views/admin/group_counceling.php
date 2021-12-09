@@ -28,8 +28,8 @@
                 </table>
 
                 <div class="form-group">
-                    <div class="label"><strong>Remarks</strong></div>
-                    <input type="text" name="txt-remarks" class="txt-remarks" style="border: none; border-bottom: 2px solid red;"/>
+                    <div class="label"><strong>Remarks : </strong></div>
+                    <input type="text" name="txt-remarks" class="txt-remarks" style="border: none; border-bottom: 2px solid red; width:85%"/>
                 </div>
                 <div class="text-right">
                     <button class="btn btn-green btn-small btn-confirm" type="button">Confirm</button>
