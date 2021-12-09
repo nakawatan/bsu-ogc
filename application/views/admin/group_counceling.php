@@ -118,6 +118,11 @@
                 } else {
                     setTimeout(loadCurrentEvent, 3000);
                 }
+            },
+            eventTimeFormat: { // like '14:30:00'
+                hour: '2-digit',
+                minute: '2-digit',
+                meridiem: true
             }
         });
         calendar.render();
