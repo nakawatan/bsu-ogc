@@ -333,6 +333,19 @@ var calendar_elem;
         });
         $('#settings').submit(function(e){
             e.preventDefault();
+
+            if($('[name="old-password"]').val() != "") {
+                if ($('[name="new-password"]').val() != $('[name="confirm-password"]').val()){
+                    Swal.fire({
+                        title: 'ERROR!',
+                        text: 'Password do not match',
+                        showConfirmButton: false,
+                        icon: 'error',
+                    })
+                    return;
+                }
+            }
+
             var form     = $(this)[0],
                 formData = new FormData(form);
             $.ajax({

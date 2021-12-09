@@ -424,6 +424,31 @@ class Admin_model extends CI_Model
         return $result;
     }
 
+    public function validate_password($userID, $password)
+    {
+        $password = MD5('BatangasStateUniversity::' . $password . '::BSU');
+        $result = $this->db
+            ->where('user_id', $userID)
+            ->where('password', $password)
+            ->get('users')
+            ->num_rows();
+
+        if ($result > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public function change_password($userID, $password)
+    {
+        $password = MD5('BatangasStateUniversity::' . $password . '::BSU');
+        $this->db->where('user_id', $userID);
+        $data = [
+            "password"=>$password
+        ];
+        $this->db->update('users', $data);
+    }
+
     public function get_appointment_list_by_type_status($type,$status)
     {
         $result = $this->db->select('*')

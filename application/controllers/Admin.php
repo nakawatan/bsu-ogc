@@ -532,6 +532,8 @@ class Admin extends MY_Controller
         $disable_hour = $this->input->post('disable_hour');
         $disable_day = $this->input->post('disable_day');
         $disable_month = $this->input->post('disable_month');
+        $old_password = $this->input->post('old-password');
+        $new_password = $this->input->post('new-password');
         
         $options_data = [
             array(
@@ -547,6 +549,14 @@ class Admin extends MY_Controller
                 'option_value' => maybe_serialize($disable_month)
             )
         ];
+
+        // change password
+        if (isset($old_password) && isset($new_password)){
+            $userid = $this->data['user_session']['user_id'];
+            if($this->model->validate_password($userid,$old_password)){
+                $this->model->change_password($userid,$new_password);
+            }
+        }
 
         $this->model->update_options($options_data);
         // echo $this->validate_file('banner_new');
