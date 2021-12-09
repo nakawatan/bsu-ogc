@@ -136,7 +136,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 									<form class="form-validate" id="<?= $request_cgmc_job_application ? 'update_request_cgmc_job_application' : 'request_cgmc_job_application' ?>" method="post" enctype="multipart/form-data">
 										<?php if($request_cgmc_job_application): ?><input type="hidden" name="request_id" value="<?= base64_encode($request_cgmc_job_application->id) ?>"><?php endif; ?>
 										<div class="form-group">
-											<div class="label"><strong>Proof of Payment:</strong> <small>(e.g., Screenshot of e-receipt)</small></div>
+											<div class="label" style=text-align:left><strong>Proof of Payment:</strong> <small>(e.g., Screenshot of e-receipt)</small></div>
 											<input type="file" name="pop-job-application" id="pop-job-application" <?= $ja_receipt_number && $ja_receipt_number_status != 'reject' ? 'disabled' : '' ?>/>
 											<label class="btn-attach" for="pop-job-application" title="Attach file here"><?= $ja_receipt_number ? $ja_receipt_number : 'Attach file here' ?></label>	
 											<?php if($ja_receipt_number_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
@@ -194,7 +194,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 						<div class="text-helper first-step">
 						<p><strong>Procedure</strong></p>
 							<ol>
-								<li>Fill Up the request form for Certificate of Good Moral Character.</li>
+								<li>Fill up the request form for Certificate of Good Moral Character.</li>
 								<li>Secure the signature of the Office of Student Descipline (OSD) Head/Coordinator.</li>
 								<li>Application Form of Scholarship.</li>
 								<li>Registration Form (Current Semester).</li>
@@ -210,7 +210,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 							<form class="form-validate" id="<?= $request_cgmc_scholarship ? 'update_request_cgmc_scholarship' : 'request_cgmc_scholarship' ?>" method="post" enctype="multipart/form-data">
 							<?php if($request_cgmc_scholarship): ?><input type="hidden" name="request_id" value="<?= base64_encode($request_cgmc_scholarship->id) ?>"><?php endif; ?>
 						<div class="form-group">
-							<div class="label"><strong>Proof of Payment:</strong> <small>e.g., Screenshot of e-receipt</small></div>
+							<div class="label" style=text-align:left><strong>Proof of Payment:</strong> <small>e.g., Screenshot of e-receipt</small></div>
 							<input type="file" name="pop-scholarship" id="pop-scholarship" <?= $ss_receipt_number && $ss_receipt_number_status != 'reject' ? 'disabled' : '' ?>/>
 							<label class="btn-attach" for="pop-scholarship" title="Attach file here"><?= $ss_receipt_number ? $ss_receipt_number : 'Attach file here' ?></label>	
 							<?php if($ss_receipt_number_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
@@ -307,7 +307,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 									<form class="form-validate" id="<?= $request_cgmc_transferee ? 'update_request_cgmc_transferee' : 'request_cgmc_transferee' ?>" method="post" enctype="multipart/form-data">
 										<?php if($request_cgmc_transferee): ?><input type="hidden" name="request_id" value="<?= base64_encode($request_cgmc_transferee->id) ?>"><?php endif; ?>
 										<div class="form-group">
-											<div class="label"><strong>Proof of Payment:</strong> <small>(e.g., Screenshot of e-receipt)</small></div>
+											<div class="label" style=text-align:left><strong>Proof of Payment:</strong> <small>(e.g., Screenshot of e-receipt)</small></div>
 											<input type="file" name="pop-transfer" id="pop-transfer" <?= $transferee_receipt_number && $transferee_receipt_number_status != 'reject' ? 'disabled' : '' ?>/>
 											<label class="btn-attach" for="pop-transfer" title="Attach file here"><?= $transferee_receipt_number ? $transferee_receipt_number : 'Attach file here' ?></label>	
 											<?php if($transferee_receipt_number_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
@@ -323,7 +323,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 										</div>
 									
 										<div class="form-group">
-											<div class="label"><strong>Exit Interview Form:</strong></div>
+											<div class="label" style=text-align:left><strong>Exit Interview Form:</strong><small>Signed by Parent/Guardian, Adviser/Program Chair, and College Dean</small></div>
 											<input type="file" name="transferee_exit_interview_form_file" id="transferee_exit_interview_form_file" <?= $transferee_exit_interview_form_file && $transferee_exit_interview_form_status != 'reject' ? 'disabled' : '' ?>/>
 											<label class="btn-attach" for="transferee_exit_interview_form_file" title="Attach file here"><?= $transferee_exit_interview_form_file ? $transferee_exit_interview_form_file : 'Attach file here' ?></label>	
 											<?php if($transferee_exit_interview_form_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
@@ -381,7 +381,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 									<form class="form-validate" id="<?= $request_cgmc_tosa_app ? 'update_request_cgmc_tosa_app' : 'request_cgmc_tosa_app' ?>" method="post" enctype="multipart/form-data">
 										<?php if($request_cgmc_tosa_app): ?><input type="hidden" name="request_id" value="<?= base64_encode($request_cgmc_tosa_app->id) ?>"><?php endif; ?>
 										<div class="form-group">
-											<div class="label"><strong>Proof of payment:</strong> <small>(e.g., Screenshot of e-receipt)</small></div>
+											<div class="label" style=text-align:left><strong>Proof of payment:</strong> <small>(e.g., Screenshot of e-receipt)</small></div>
 											<input type="file" name="pop-tosa" id="pop-tosa" <?= $tosa_app_receipt_number && $tosa_app_receipt_number_status != 'reject' ? 'disabled' : '' ?>/>
 											<label class="btn-attach" for="pop-tosa" title="Attach file here"><?= $tosa_app_receipt_number ? $tosa_app_receipt_number : 'Attach file here' ?></label>	
 											<?php if($tosa_app_receipt_number_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
@@ -514,7 +514,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 					</ul>
 				</li>
 				<li>
-					<a href="https://dione.batstate-u.edu.ph/ecounseling/#/"><i class="fas fa-hand-holding-heart"></i> Counseling</a>
+					<a href="https://dione.batstate-u.edu.ph/ecounseling/#/"><i class="fas fa-hand-holding-heart"></i> e-Counseling</a>
 				</li>
 				<li class="has-sub-menu">
 					<a href="#"><i class="fas fa-users"></i> Group Counseling</a>
@@ -806,9 +806,9 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 					</div>
 				</div>
 				<div class="form-group no-flex">
-					<label for="available-slots">Available Slots :</label>
+				<!--	<label for="available-slots">Available Slots :</label> -->
 					<div class="text-center">
-						<input type="text" name="available-slots" value="<?= max_slots() - $default_available_slots; ?> Slots" readonly>
+				<!--		<input type="text" name="available-slots" value="<?= max_slots() - $default_available_slots; ?> Slots" readonly> -->
 					</div>
 				</div>
 				<div class="form-group no-flex">
@@ -841,12 +841,19 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 					</div>
 				</div>
 				<div class="form-group no-flex">
+				<label for="time-2">Select Time : </label>
+						<div class="text-center">
+							<select name="time" id="time-2" style="display: inline-block;max-width: 200px;">
+							<?php foreach($allow_hour as $time): //print_r($disable_hour); ?>
+							<option value="<?= $time; ?>" <?= in_array($time, $disable_hour) ? 'disabled' : '' ?>><?= $time ?></option>
+							<?php endforeach; ?>							
+							</select>
+						</div>
 					<div>
-						<!-- Bale kelangan po muna ma-aaprove itong requirement bago sya makapag set ng appointment. 
-						Parang katulad po sya ng Certificate of Good moral, Yung button po nito magiging "Set Appointment" once approve na -->
+					
 						<div class="exit_interview_forms">
 							<div class="form-group">
-								<div class="label"><strong>Exit Form : </strong> <small>Signed by Parent/Guardian, Adviser/Program Chair, and College Dean</small> </div>
+								<div class="label" style=text-align:left><strong>Exit Interview Form : </strong> <small>Signed by Parent/Guardian, Adviser/Program Chair, and College Dean</small> </div>
 								<input type="file" name="exit-form" id="exit-form"/>
 								<label class="btn-attach" for="exit-form" title="Attach file here">Attach file here</label>
 							</div>
@@ -870,14 +877,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 								<label class="btn-attach" for="coc-form" title="Attach file here">Attach file here</label>
 							</div>
 						</div>
-						<label for="time-2">Select Time : </label>
-						<div class="text-center">
-							<select name="time" id="time-2">
-							<?php foreach($allow_hour as $time): //print_r($disable_hour); ?>
-							<option value="<?= $time; ?>" <?= in_array($time, $disable_hour) ? 'disabled' : '' ?>><?= $time ?></option>
-							<?php endforeach; ?>							
-							</select>
-						</div>
+						
 					</div>
 				</div>
 				<p class="text-center"><button type="submit" class="btn btn-green">SET APPOINTMENT</button></p>

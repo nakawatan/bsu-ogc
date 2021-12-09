@@ -76,16 +76,16 @@
 	<div>
 		<h3>Password</h3>
 		<div class="form-group">
-			<div class="label"><strong>Current Password : </strong></div>
-			<input type="password" name="old-password" class="old-password" style="border: none; border-bottom: 2px solid red; width:70%;"/>
+			<div style="min-width:131px; text-align:left" class="label"><strong>Current Password : </strong></div>
+			<input type="password" name="old-password" class="old-password" style="border: none; border-bottom: 2px solid red;"/>
 		</div>
 		<div class="form-group">
-			<div class="label"><strong>New Password : </strong></div>
-			<input type="password" name="new-password" class="new-password" style="border: none; border-bottom: 2px solid red; width:70%;"/>
+			<div style="min-width:131px; text-align:left" class="label"><strong>New Password : </strong></div>
+			<input type="password" name="new-password" class="new-password" style="border: none; border-bottom: 2px solid red;"/>
 		</div>
 		<div class="form-group">
-			<div class="label"><strong>New Password : </strong></div>
-			<input type="password" name="confirm-password" class="confirm-password" style="border: none; border-bottom: 2px solid red; width:70%;"/>
+			<div style="min-width:131px; text-align:left" class="label"><strong>New Password : </strong></div>
+			<input type="password" name="confirm-password" class="confirm-password" style="border: none; border-bottom: 2px solid red;"/>
 		</div>
 	</div>
 	<div class="text-center">

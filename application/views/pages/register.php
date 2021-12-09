@@ -42,17 +42,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
         <div class="form-row post-signup">
             <div class="col-start">
-                <label for="username">SR-Code</label>
-                <input type="text" name="username" id="username" value="" autocomplete="false">
-            </div>
-            <div class="col-end">
-                <label for="department">Department</label>
+            <label for="department">Department</label>
                 <select name="department" id="department">
                     <option value="" disabled selected></option>
                     <option value="1">College of Informatics and Computing Sciences</option>
                     <option value="2">College of Industrial Technology</option>
                     <option value="3">College of Engineering Architecture and Fine Arts</option>
                 </select>
+            </div>
+            <div class="col-end">
+                <label for="username">SR-Code</label>
+                <input type="text" name="username" id="username" value="" autocomplete="false">
             </div>
         </div>
             <div class="form-row post-signup">
@@ -101,7 +101,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
         </div>
         <div class="text-center">
-        <div class="text-center" style="margin-top: 10px;"><a href="<?= LINK ?>login">Login</a></div>
+        <!-- <div class="text-center" style="margin-top: 10px;"><a href="<?= LINK ?>login">Login</a></div> -->
         <button type="submit" class="btn btn-register">Register</button>
         </div>
     </form>
