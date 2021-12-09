@@ -48,7 +48,33 @@
     <div class="modal-bg-overlay"></div>
 </div> 
 
-<div id='calendar'></div>
+<style>
+    .my-header-title{
+        background: white;
+        border-radius: 19px;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    .my-main-container {
+        background: #eaeaea;
+        margin: 0 auto;
+        width: 80%;
+        /* padding: 5px; */
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+        border-radius: 19px;
+    }
+
+    .my-calendar {
+        background:white;
+    }
+</style>
+<div class="my-main-container">
+    <h2 class="text-center my-header-title"></h2>
+    <div id='calendar' class="my-calendar" ></div>
+<div>
 
 <script>
     var calendar;
@@ -57,6 +83,7 @@
         var calendarEl = document.getElementById('calendar');
         calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
+            contentHeight: 500,
             events: {
                 url: '/admin/get_group_counceling?type=<?php echo $appointment_type; ?>',
             },
@@ -155,10 +182,13 @@
         calendar.render();
         if (appointment_type == "exit_interview"){
             $('.div-title').text("Exit Interview");
+            $(".my-header-title").text("Exit Interview");
         }else if (appointment_type == "initial_interview"){
             $('.div-title').text("OJT Initial Interview");
+            $(".my-header-title").text("OJT Initial Interview");
         }else{
             $('.div-title').text("OJT Post Interview");
+            $(".my-header-title").text("OJT Post Interview");
         }
     });
 

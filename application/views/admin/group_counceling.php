@@ -37,9 +37,34 @@
         </div>
     </div>
     <div class="modal-bg-overlay"></div>
-</div> 
+</div>
+<style>
+    .my-header-title{
+        background: white;
+        border-radius: 19px;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
 
-<div id='calendar'></div>
+    .my-main-container {
+        background: #eaeaea;
+        margin: 0 auto;
+        width: 80%;
+        /* padding: 5px; */
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+        border-radius: 19px;
+    }
+
+    .my-calendar {
+        background:white;
+    }
+</style>
+<div class="my-main-container">
+    <h2 class="text-center my-header-title">Group Counseling</h2>
+    <div id='calendar' class="my-calendar" ></div>
+<div>
 
 <script>
     var calendar;
@@ -47,6 +72,7 @@
         var calendarEl = document.getElementById('calendar');
         calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
+            contentHeight: 500,
             events: {
                 url: '/admin/get_group_counceling',
             },

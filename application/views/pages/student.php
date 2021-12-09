@@ -795,7 +795,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 				<div class="form-group no-flex">
 					
 					<div>
-						<label for="time">Select Time</label>
+						<label for="time">Select Time :</label>
 						<div class="text-center">
 							<select name="time" id="time">
 							<?php foreach($allow_hour as $time): //print_r($disable_hour); ?>
@@ -805,15 +805,17 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 						</div>
 					</div>
 				</div>
-				<div class="no-flex">
+				<div class="form-group no-flex">
 					<label for="available-slots">Available Slots :</label>
 					<div class="text-center">
 						<input type="text" name="available-slots" value="<?= max_slots() - $default_available_slots; ?> Slots" readonly>
 					</div>
-					<div class="no-flex">
-						<label for="available-slots">Members :</label>
-						<div class="gc-member-list">
-						</div>
+				</div>
+				<div class="form-group no-flex">
+					<label for="available-slots">Members :</label>
+					<div class="gc-member-list form-group">
+					</div>
+					<div class="form-group">
 						<input type="text" name="gc-member" id="gc-member" value="">
 						<button class="btn-add-member btn" type="button">Add member</button>
 					</div>
@@ -838,37 +840,37 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 						<div id="datepicker-2"></div>
 					</div>
 				</div>
-				<div class="form-group d-flex">
+				<div class="form-group no-flex">
 					<div>
 						<!-- Bale kelangan po muna ma-aaprove itong requirement bago sya makapag set ng appointment. 
 						Parang katulad po sya ng Certificate of Good moral, Yung button po nito magiging "Set Appointment" once approve na -->
 						<div class="exit_interview_forms">
 							<div class="form-group">
-								<div class="label"><strong>Exit Form</strong> <small>Signed by Parent/Guardian, Adviser/Program Chair, and College Dean</small> </div>
+								<div class="label"><strong>Exit Form : </strong> <small>Signed by Parent/Guardian, Adviser/Program Chair, and College Dean</small> </div>
 								<input type="file" name="exit-form" id="exit-form"/>
 								<label class="btn-attach" for="exit-form" title="Attach file here">Attach file here</label>
 							</div>
 							<div class="form-group">
-								<div class="label"><strong>Exit Questionnaire</strong> <small></small> </div>
+								<div class="label"><strong>Exit Questionnaire : </strong> <small></small> </div>
 								<input type="file" name="exit-questionnaire" id="exit-questionnaire"/>
 								<label class="btn-attach" for="exit-questionnaire" title="Attach file here">Attach file here</label>
 							</div> 
 						</div>
 						<div class="initial_interview_forms">
 							<div class="form-group">
-								<div class="label"><strong>Registration Form</strong> <small>(Current semester)</small> </div>
+								<div class="label"><strong>Registration Form : </strong> <small>(Current semester)</small> </div>
 								<input type="file" name="reg-form" id="reg-form"/>
 								<label class="btn-attach" for="reg-form" title="Attach file here">Attach file here</label>
 							</div>
 						</div>
 						<div class="post_interview_forms">
 							<div class="form-group">
-								<div class="label"><strong>Certificate of Completion</strong> <small></small> </div>
+								<div class="label"><strong>Certificate of Completion : </strong> <small></small> </div>
 								<input type="file" name="coc-form" id="coc-form"/>
 								<label class="btn-attach" for="coc-form" title="Attach file here">Attach file here</label>
 							</div>
 						</div>
-						<label for="time-2">Select Time</label>
+						<label for="time-2">Select Time : </label>
 						<div class="text-center">
 							<select name="time" id="time-2">
 							<?php foreach($allow_hour as $time): //print_r($disable_hour); ?>
