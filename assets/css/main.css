@@ -263,7 +263,7 @@ input[type=checkbox]{
   text-decoration: none;
 }
 .btn-logout{
-  font-size: 25px;
+  /* font-size: 25px; */
 }
 .btn-logout a{
   color: #fff;

@@ -955,10 +955,10 @@
         // TOGGLE (SHOW OR HIDE) NOTIFICATION WINDOW.
         $('#notifications').fadeToggle('fast', 'linear', function () {
             if ($('#notifications').is(':hidden')) {
-                $('#noti_Button').css('background-color', '#2E467C');
+                // $('#noti_Button').css('background-color', '#2E467C');
             }
             // CHANGE BACKGROUND COLOR OF THE BUTTON.
-            else $('#noti_Button').css('background-color', '#FFF');
+            // else $('#noti_Button').css('background-color', '#FFF');
         });
 		get_notifications_ajax();
 
