@@ -412,7 +412,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 											<?php if($tosa_app_registration_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
 										<div class="form-group">
-											<div class="label"><strong>Proof of application of honors/awards</strong> </div>
+											<div class="label"><strong>Proof of Application of Honors/Awards</strong> </div>
 											<input type="file" name="tosa_app_proof_of_app_of_ha_file" id="tosa_app_proof_of_app_of_ha_file" <?= ($tosa_app_proof_of_app_of_ha_file && $tosa_app_proof_of_app_of_ha_status != 'reject') || $ja_cgmc_file != "" ? 'disabled' : '' ?>/>
 											<label class="btn-attach" for="tosa_app_proof_of_app_of_ha_file" title="Attach file here"><?= $tosa_app_registration_file ? $tosa_app_proof_of_app_of_ha_file : 'Attach file here' ?></label>	
 											<?php if($tosa_app_proof_of_app_of_ha_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
