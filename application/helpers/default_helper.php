@@ -220,7 +220,7 @@ if ( ! function_exists('department'))
 
         $department = array(
             1 => array(
-                'department' => 'College Of Informatics and Computing Sciences',
+                'department' => 'College of Informatics and Computing Sciences',
                 'courses' => array(
                     'Bachelor of Science in Computer Science',
                     'Bachelor of Science in Information Technology'

@@ -77,7 +77,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 											<?php if($ojt_cgmc_form_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
 										<div class="form-group">
-											<div class="label"><strong>Proof of initial Interview / Career Advising</strong> <small>Mentoring for Assesement</small></div>
+											<div class="label"><strong>Proof of Initial Interview / Career Advising</strong> <small>Mentoring for Assesement</small></div>
 											<input type="file" name="interview-form" id="interview-form" <?= ($ojt_career_advising_file && $ojt_career_advising_status != 'reject') || $ja_cgmc_file != "" ? 'disabled' : '' ?>/>
 											<label class="btn-attach" for="interview-form" title="Attach file here"><?= $ojt_career_advising_file ? $ojt_career_advising_file : 'Attach file here' ?></label>	
 											<?php if($ojt_career_advising_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
