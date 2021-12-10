@@ -10,7 +10,7 @@
                     <th>SR-Code</th>
                     <th>Name</th>
                     <th>Program</th>
-                    <th>Year</th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +22,7 @@
                 <td><span class="check-icon txt-green <?= !$info['cgmc_file'] ? 'visible-hidden' : '' ?>"><i class="fas fa-check"></i></span><?= $info['username'] ?></td>
                     <td><?= $info['last_name'] ?>, <?= $info['first_name'] ?> <?= $info['middle_name'] ?></td>
                     <td><?= $info['course'] ?></td>
-                    <td>4th Year</td>
+                  
                 </tr>
             <?php 
                 endforeach; 
