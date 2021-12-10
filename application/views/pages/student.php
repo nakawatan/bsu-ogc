@@ -117,7 +117,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 							</div>	
 						</li>
 						<li class="has-sub-menu">
-							<a href="#">Employment, licensure examination and further studies</a>
+							<a href="#">Employment, Licensure Examination and Further Studies</a>
 							<div class="sub-menu">
 								<div class="text-helper first-step">
 									<p><strong>Procedure</strong></p>
@@ -455,7 +455,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 							</div>	
 						</li>
 						<li class="has-sub-menu">
-							<a href="#">Students who will represent the University in regional/ national/ international competitions</a>
+							<a href="#">Students who will represent the University in Regional/ National/ International Competitions</a>
 							<div class="sub-menu">
 								<div class="text-helper first-step">
 									<p><strong>Procedure</strong></p>

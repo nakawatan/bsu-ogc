@@ -89,7 +89,7 @@ class Admin extends MY_Controller
     public function cgmc_ja()
     {
         $data['title'] = 'Request for Certificate of Good Moral Character';
-        $data['sub_heading'] = 'Employment, licensure examination and further studies';
+        $data['sub_heading'] = 'Employment, Licensure Examination and Further Studies';
         $result = $this->model->get_requests_cgmc_ja();
         $data['data_table'] = $result;
         parent::view('admin/cgmc_ja', $data);
@@ -230,7 +230,7 @@ class Admin extends MY_Controller
     public function cgmc_rnur()
     {
         $data['title'] = 'Request for Certificate of Good Moral Character';
-        $data['sub_heading'] = 'Students who will represent the University in regional/ national/ international competitions';
+        $data['sub_heading'] = 'Students who will represent the University in Regional/ National/ International Competitions';
         $result = $this->model->get_requests_cgmc_rnur();
         $data['data_table'] = $result;
         parent::view('admin/cgmc_rnur', $data);

@@ -7,10 +7,7 @@
         <h3 style="margin-bottom: 10px;"><?= $data_table['last_name'] ?>, <?= $data_table['first_name'] ?> <?= $data_table['middle_name'] ?></h3>
         <span><?= $data_table['course'] ?></span>
       </div>
-      <div class="text-right">
-        <h3 style="margin-bottom: 10px;">18-07620</h3>
-        <span>4th year</span>
-      </div>
+      
     </div>
     <!-- $rnu_rep_cgmc_form_file & $rnu_rep_cgmc_form_status is not yet on database. -->
 		<div class="form-group mb-5">

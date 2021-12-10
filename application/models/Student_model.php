@@ -297,7 +297,7 @@ class Student_model extends CI_Model
     // =========================================================
 
 
-    // Request CFMC for Regional, National University's Representative
+    // Request CGMC for Regional, National University's Representative
     public function store_request_cgmc_rnu_rep($data)
     {
         $this->db->insert('request_cgmc_rnu_rep', $data);

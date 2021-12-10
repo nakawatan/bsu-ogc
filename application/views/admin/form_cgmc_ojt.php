@@ -7,10 +7,7 @@
         <h3 style="margin-bottom: 10px;"><?= $data_table['last_name'] ?>, <?= $data_table['first_name'] ?> <?= $data_table['middle_name'] ?></h3>
         <span><?= $data_table['course'] ?></span>
       </div>
-      <div class="text-right">
-        <h3 style="margin-bottom: 10px;">18-07620</h3>
-        <span>4th year</span>
-      </div>
+      
     </div>
     <!-- $ojt_cgmc_form_file & $ojt_cgmc_form_status is not yet on database.
 		<div class="form-group mb-5">
@@ -41,7 +38,7 @@
         </div>
     </div>
     <div class="form-group mb-5">
-        <div class="label"><strong>Certificate of Good Moral Character Form:</strong> <small>Signed by the CSD and OJT Coordinator</small></div>
+        <div class="label"><strong>Certificate of Good Moral Character Form:</strong> <small>Signed by the OSD and OJT Coordinator</small></div>
         <label class="btn-attach" for="cgmc_form" data-target="<?= base_url('assets/uploads/docs/').encodeFolder($data_table['student_id']).'/'.$data_table['cgmc_form_file'] ?>"><?= $data_table['cgmc_form_file']; ?></label>   
         <div class="approved txt-green <?= $data_table['cgmc_form_status'] == 'pending' || $data_table['cgmc_form_status'] == 'reject' ? 'hide' : '' ?>" data-target="cgmc_form_status"><i class="fas fa-check"></i></div>
         <div class="approved txt-red <?= $data_table['cgmc_form_status'] == 'pending' || $data_table['cgmc_form_status'] == 'approved' ? 'hide' : '' ?>" data-target="cgmc_form_status"><i class="fas fa-times"></i></div>
