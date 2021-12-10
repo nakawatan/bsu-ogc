@@ -47,7 +47,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 								<div class="text-helper first-step">
 									<p><strong>Procedure</strong></p>
 									<ol>
-										<li>Undergo initial interview/career advising and mentoring for assessment.</li>
+										<li>Undergo Initial interview/Career Advising and Mentoring for Assessment.</li>
 										<li>Fill up the request form for Certificate of Good Moral Character.</li>
 										<li>Secure the signature of the Office of Student Discipline (OSD) Head/Coordinator and OJT Coordinator.</li>
 										<li>Secure a copy of registration form (Current Semester)</li>
