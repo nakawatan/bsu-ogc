@@ -44,7 +44,7 @@ class Register extends MY_Controller
         // $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
         $this->form_validation->set_rules('department', 'Department', 'trim|required');
         $this->form_validation->set_rules('program', 'Program', 'trim|required');
-
+        die();
         if ($this->form_validation->run()) {
             $first_name 	= $this->input->post('first_name');
             $last_name 		= $this->input->post('last_name');

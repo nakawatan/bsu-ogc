@@ -63,6 +63,11 @@
           <button type="button" class="btn btn-small btn-reject" data-input="career_advising_status">Reject</button>
         </div>
     </div>
+
+    <div class="form-group">
+        <div class="label"><strong>Remarks : </strong></div>
+        <input type="text" name="txt-remarks" class="txt-remarks" style="border: none; border-bottom: 2px solid red; width:85%;" value="<?= $data_table['remarks']; ?>"/>
+    </div>
     <div class="form-group text-right">
       <button type="submit" class="btn btn-red">Done</button>
     </div>

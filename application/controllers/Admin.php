@@ -76,7 +76,8 @@ class Admin extends MY_Controller
             $update_data = [
                 'registration_form_status' => $this->input->post('registration_form_status'),
                 'cgmc_form_status' => $this->input->post('cgmc_form_status'),
-                'career_advising_status' => $this->input->post('career_advising_status')
+                'career_advising_status' => $this->input->post('career_advising_status'),
+                'remarks' => $this->input->post('txt-remarks')
             ];
 
             $this->model->update('request_cgmc_ojt', $update_data, 'id', $id);
@@ -111,7 +112,8 @@ class Admin extends MY_Controller
             $update_data = [
                 'receipt_number_status' => $this->input->post('receipt_number_status'),
                 'tor_status' => $this->input->post('tor_status'),
-                'cgmc_form_status' => $this->input->post('ja_cgmc_form_status')
+                'cgmc_form_status' => $this->input->post('ja_cgmc_form_status'),
+                'remarks' => $this->input->post('txt-remarks')
             ];
 
             $this->model->update('request_cgmc_job_application', $update_data, 'id', $id);
@@ -150,7 +152,8 @@ class Admin extends MY_Controller
                 'application_form_status' => $this->input->post('application_form_status'),
                 'registration_form_status' => $this->input->post('registration_form_status'),
                 'grades_from_prev_status' => $this->input->post('grades_from_prev_status'),
-                'cgmc_form_status' => $this->input->post('ss_cgmc_form_status')
+                'cgmc_form_status' => $this->input->post('ss_cgmc_form_status'),
+                'remarks' => $this->input->post('txt-remarks')
             ];
 
             $this->model->update('request_cgmc_scholarship', $update_data, 'id', $id);
@@ -185,7 +188,8 @@ class Admin extends MY_Controller
             $update_data = [
                 'receipt_number_status' => $this->input->post('receipt_number_status'),
                 'exit_interview_form_status' => $this->input->post('exit_interview_form_status'),
-                'cgmc_form_status' => $this->input->post('transferee_cgmc_form_status')
+                'cgmc_form_status' => $this->input->post('transferee_cgmc_form_status'),
+                'remarks' => $this->input->post('txt-remarks')
             ];
             $this->model->update('request_cgmc_transferee', $update_data, 'id', $id);
         }
@@ -220,7 +224,8 @@ class Admin extends MY_Controller
                 'tosa_app_form_of_scholarship_status' => $this->input->post('tosa_app_form_of_scholarship_status'),
                 'registration_status' => $this->input->post('registration_status'),
                 'proof_of_app_of_ha_status' => $this->input->post('proof_of_app_of_ha_status'),
-                'cgmc_form_status' => $this->input->post('tosa_app_cgmc_form_status')
+                'cgmc_form_status' => $this->input->post('tosa_app_cgmc_form_status'),
+                'remarks' => $this->input->post('txt-remarks')
             ];
             $this->model->update('request_cgmc_tosa_app', $update_data, 'id', $id);
         }
@@ -249,7 +254,8 @@ class Admin extends MY_Controller
             // Update Data
             $update_data = [
                 'registration_form_status' => $this->input->post('registration_form_status'),
-                'cgmc_form_status' => $this->input->post('rnu_rep_cgmc_form_status')
+                'cgmc_form_status' => $this->input->post('rnu_rep_cgmc_form_status'),
+                'remarks' => $this->input->post('txt-remarks')
             ];
             $this->model->update('request_cgmc_rnu_rep', $update_data, 'id', $id);
         }

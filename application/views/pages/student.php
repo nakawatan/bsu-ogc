@@ -605,7 +605,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 				$request_list = [];
 				if($request_cgmc_ojt){ 
 					$request_list['request_cgmc_ojt']['name'] = 'CGMC On-The-Job Training';
-					$request_list['request_cgmc_ojt']['remarks'] = "";
+					$request_list['request_cgmc_ojt']['remarks'] = $request_cgmc_ojt->remarks;
 					// $request_list['request_cgmc_ojt']['status'] = ($ojt_registration_form_status == 'approved' && $ojt_cgmc_form_status == 'approved' && $ojt_career_advising_status == 'approved') ? 'Approved' : 'Pending'; 
 					if($ojt_registration_form_status == 'approved' && $ojt_cgmc_form_status == 'approved' && $ojt_career_advising_status == 'approved'){
 						$request_list['request_cgmc_ojt']['status'] = "Approved";
@@ -617,7 +617,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 				}
 				if($request_cgmc_job_application){ 
 					$request_list['request_cgmc_job_application']['name'] = 'CGMC Job Application';
-					$request_list['request_cgmc_job_application']['remarks'] = "";
+					$request_list['request_cgmc_job_application']['remarks'] = $request_cgmc_job_application->remarks;
 					// $request_list['request_cgmc_job_application']['status'] = ($ja_receipt_number_status == 'approved' && $ja_tor_status == 'approved') ? 'Approved' : 'Pending'; 
 					if ($ja_receipt_number_status == 'approved' && $ja_tor_status == 'approved'){
 						$request_list['request_cgmc_job_application']['status'] = "Approved";
@@ -629,7 +629,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 				}
 				if($request_cgmc_scholarship){ 
 					$request_list['request_cgmc_scholarship']['name'] = 'CGMC Scholarship';
-					$request_list['request_cgmc_scholarship']['remarks'] = "";
+					$request_list['request_cgmc_scholarship']['remarks'] = $request_cgmc_scholarship->remarks;
 					// $request_list['request_cgmc_scholarship']['status'] = ($ss_receipt_number_status == 'approved' && $ss_application_form_status == 'approved' && $ss_registration_form_status == 'approved' && $ss_grade_from_prev_status == 'approved') ? 'Approved' : 'Pending'; 
 					if ($ss_receipt_number_status == 'approved' && $ss_application_form_status == 'approved' && $ss_registration_form_status == 'approved' && $ss_grade_from_prev_status == 'approved') {
 						$request_list['request_cgmc_scholarship']['status'] = "Approved";
@@ -641,7 +641,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 				}
 				if($request_cgmc_transferee){ 
 					$request_list['request_cgmc_transferee']['name'] = 'CGMC Transferee';
-					$request_list['request_cgmc_transferee']['remarks'] = "";
+					$request_list['request_cgmc_transferee']['remarks'] = $request_cgmc_transferee->remarks;
 					// $request_list['request_cgmc_transferee']['status'] = ($transferee_receipt_number_status == 'approved' && $transferee_exit_interview_form_status == 'approved') ? 'Approved' : 'Pending';  
 
 					if ($transferee_receipt_number_status == 'approved' && $transferee_exit_interview_form_status == 'approved'){
@@ -654,7 +654,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 				}
 				if($request_cgmc_tosa_app){ 
 					$request_list['request_cgmc_tosa_app']['name'] = 'CGMC TOSA Application';
-					$request_list['request_cgmc_tosa_app']['remarks'] = "";
+					$request_list['request_cgmc_tosa_app']['remarks'] = $request_cgmc_tosa_app->remarks;
 					// $request_list['request_cgmc_tosa_app']['status'] = ($tosa_app_receipt_number_status == 'approved' && $tosa_app_form_of_scholarship_status == 'approved' && $tosa_app_registration_status == 'approved') ? 'Approved' : 'Pending';  
 
 					if ($tosa_app_receipt_number_status == 'approved' && $tosa_app_form_of_scholarship_status == 'approved' && $tosa_app_registration_status == 'approved') {
