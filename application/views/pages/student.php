@@ -22,6 +22,7 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 		</li>
 	    <li class="user-fullname"><?= $student->last_name; ?>, <?= $student->first_name; ?> <?= $student->middle_name; ?></li>
 	   
+		
 	    <li><?= $student->department; ?></li>
 	    <li><?= $student->course; ?></li>
 	    
