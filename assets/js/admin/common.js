@@ -622,5 +622,10 @@ var calendar_elem;
               }
             });
         });
+
+        $('.btn-filter-report').unbind("blick").on('click',function(){
+            
+            location.href = "/admin/report/" + $('.select-month-report').val();
+        });
     });
 })(jQuery);

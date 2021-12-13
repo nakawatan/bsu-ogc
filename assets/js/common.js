@@ -94,9 +94,14 @@
 					return false;
 				}
 			});
+			if (!$(form_validate).find('.consent-agreement').prop("checked")) {
+				is_valid = false;
+			}
 
 			if(is_valid){
 				form_validate.find('button[type=submit]').prop("disabled", false);
+			}else {
+				form_validate.find('button[type=submit]').prop("disabled", true);
 			}
 		});
 		// var is_valid = true;
@@ -204,9 +209,18 @@
 			e.preventDefault();
 			// $('.confirm-modal').attr('data-form', '#form-date-time-2');
 			// $('.confirm-modal').fadeIn(300);
+			if(!$(this).find('.consent-agreement').prop('checked')){
+				Swal.fire({
+					title: 'Error!',
+					text: 'Consent agreement not checked.',
+					icon: 'error',
+					showConfirmButton: true,
+				});
+				return;
+			}
 			appointmentType=$('#form-date-time-2 input[name=appointment-type]').val() ;
 			if (appointmentType== "exit_interview") {
-				if ($('#exit-form')[0].files.length == 0 || $('#exit-questionnaire')[0].files.length == 0) {
+				if ($('#exit-form')[0].files.length == 0 || $('#exit-questionnaire')[0].files.length == 0 || $('#valid-id')[0].files.length == 0) {
 					Swal.fire({
 						title: 'Error!',
 						text: 'Exit Form and Questionnaire cannot be empty.',

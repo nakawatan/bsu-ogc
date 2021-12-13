@@ -85,9 +85,12 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 											<?php if($ojt_career_advising_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
 
-										<!-- CHECKMARK
+										<!-- CHECKMARK -->
+										<div class="form-group">
+											<input type="checkbox" class="consent-agreement"/>
 											<p>By uploading the files, I hereby give my consent and authorization to use the files I have provided. Further, I allow the concerned office to view and evaluate my personal information.</p>
-									    -->
+										</div>
+									   
 										<div class="form-group text-right">
 										<?php 
 											if( !$request_cgmc_ojt 
@@ -162,6 +165,12 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 											<label class="btn-attach" for="tor" title="Attach file here"><?= $ja_tor_file ? $ja_tor_file : 'Attach file here' ?></label>	
 											<?php if($ja_tor_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($ja_tor_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
+										</div>
+
+										<!-- CHECKMARK -->
+										<div class="form-group">
+											<input type="checkbox" class="consent-agreement"/>
+											<p>By uploading the files, I hereby give my consent and authorization to use the files I have provided. Further, I allow the concerned office to view and evaluate my personal information.</p>
 										</div>
 										<div class="form-group text-right">
 										<?php 
@@ -255,6 +264,12 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 							<?php if($ss_grade_from_prev_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 						</div>
 			
+
+						<!-- CHECKMARK -->
+						<div class="form-group">
+							<input type="checkbox" class="consent-agreement"/>
+							<p>By uploading the files, I hereby give my consent and authorization to use the files I have provided. Further, I allow the concerned office to view and evaluate my personal information.</p>
+						</div>
 						<div class="form-group text-right">
 							<?php 
 									if( !$request_cgmc_scholarship 
@@ -333,6 +348,12 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 											<label class="btn-attach" for="transferee_exit_interview_form_file" title="Attach file here"><?= $transferee_exit_interview_form_file ? $transferee_exit_interview_form_file : 'Attach file here' ?></label>	
 											<?php if($transferee_exit_interview_form_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($transferee_exit_interview_form_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
+										</div>
+
+										<!-- CHECKMARK -->
+										<div class="form-group">
+											<input type="checkbox" class="consent-agreement"/>
+											<p>By uploading the files, I hereby give my consent and authorization to use the files I have provided. Further, I allow the concerned office to view and evaluate my personal information.</p>
 										</div>
 										<div class="form-group text-right">
 										<?php
@@ -423,6 +444,12 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 											<?php if($tosa_app_proof_of_app_of_ha_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($tosa_app_proof_of_app_of_ha_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
+
+										<!-- CHECKMARK -->
+										<div class="form-group">
+											<input type="checkbox" class="consent-agreement"/>
+											<p>By uploading the files, I hereby give my consent and authorization to use the files I have provided. Further, I allow the concerned office to view and evaluate my personal information.</p>
+										</div>
 										<div class="form-group text-right">
 										<?php 
 											if( !$request_cgmc_tosa_app
@@ -492,6 +519,12 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 											<label class="btn-attach" for="rnu_rep_registration_form_file" title="Attach file here"><?= $rnu_rep_registration_form_file ? $rnu_rep_registration_form_file : 'Attach file here' ?></label>	
 											<?php if($rnu_rep_registration_form_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($rnu_rep_registration_form_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
+										</div>
+
+										<!-- CHECKMARK -->
+										<div class="form-group">
+											<input type="checkbox" class="consent-agreement"/>
+											<p>By uploading the files, I hereby give my consent and authorization to use the files I have provided. Further, I allow the concerned office to view and evaluate my personal information.</p>
 										</div>
 										<div class="form-group text-right">
 										<?php 
@@ -867,6 +900,11 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 								<input type="file" name="exit-questionnaire" id="exit-questionnaire"/>
 								<label class="btn-attach" for="exit-questionnaire" title="Attach file here">Attach file here</label>
 							</div> 
+							<div class="form-group">
+								<div class="label"><strong>Valid ID of Parent/Guardian : </strong> <small></small> </div>
+								<input type="file" name="valid-id" id="valid-id"/>
+								<label class="btn-attach" for="valid-id" title="Attach file here">Attach file here</label>
+							</div> 
 						</div>
 						<div class="initial_interview_forms">
 							<div class="form-group">
@@ -883,6 +921,11 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 							</div>
 						</div>
 						
+					</div>
+					<!-- CHECKMARK -->
+					<div class="form-group">
+						<input type="checkbox" class="consent-agreement"/>
+						<p>By uploading the files, I hereby give my consent and authorization to use the files I have provided. Further, I allow the concerned office to view and evaluate my personal information.</p>
 					</div>
 				</div>
 				<p class="text-center"><button type="submit" class="btn btn-green">SET APPOINTMENT</button></p>

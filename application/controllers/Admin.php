@@ -352,6 +352,8 @@ class Admin extends MY_Controller
             $x['remarks'] = $a['remarks'];
             $x['exit_form']=$a['exit_form'];
             $x['exit_form_url']=base_url('assets/uploads/docs/').encodeFolder($a['student_id']).'/'.$a['exit_form'];
+            $x['valid_id']=$a['valid_id'];
+            $x['valid_id_url']=base_url('assets/uploads/docs/').encodeFolder($a['student_id']).'/'.$a['valid_id'];
             $x['exit_questionnaire']=$a['exit_questionnaire'];
             $x['exit_questionnaire_url']=base_url('assets/uploads/docs/').encodeFolder($a['student_id']).'/'.$a['exit_questionnaire'];
             $x['registration_form']=$a['registration_form'];
@@ -468,6 +470,29 @@ class Admin extends MY_Controller
         }
         $data['get_appointments'] = $arr;
         parent::view('admin/appointments', $data);
+    }
+
+    public function report($month=null)
+    {
+        if (!isset($month)){
+           $month = date('m'); 
+        }
+
+        $year = date("Y");
+        
+        $data['cgmc_ojt_pending'] = $this->model->get_generic_successful_report('request_cgmc_ojt',$month,$year);
+        $data['cgmc_ja_pending'] = $this->model->get_generic_successful_report('request_cgmc_job_application',$month,$year);
+        $data['cgmc_ss_pending'] = $this->model->get_generic_successful_report('request_cgmc_scholarship',$month,$year);
+        $data['cgmc_tf_pending'] = $this->model->get_generic_successful_report('request_cgmc_transferee',$month,$year);
+        $data['cgmc_ta_pending'] = $this->model->get_generic_successful_report('request_cgmc_tosa_app',$month,$year);
+        $data['cgmc_rnur_pending'] = $this->model->get_generic_successful_report('request_cgmc_rnu_rep',$month,$year);
+        $data['counseling'] = $this->model->get_appointment_list_by_type_status_month('group_counseling',"approved",$month,$year);
+        $data['exit_interview'] = $this->model->get_appointment_list_by_type_status_month('exit_interview',"approved",$month,$year);
+        $data['initial_interview'] = $this->model->get_appointment_list_by_type_status_month('initial_interview',"approved",$month,$year);
+        $data['post_interview'] = $this->model->get_appointment_list_by_type_status_month('post_interview',"approved",$month,$year);
+        $data['title'] = "Summary of Request";
+        $data['sub_heading']="";
+        parent::view('admin/report',$data);
     }
 
     public function update_appointment($type, $date)

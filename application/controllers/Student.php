@@ -797,6 +797,7 @@ class Student extends MY_Controller
 		$data['coc-form'] = $this->validate_file('coc-form');
 		$data['reg-form'] = $this->validate_file('reg-form');
 		$data['exit-questionnaire'] = $this->validate_file('exit-questionnaire');
+		$data['valid-id'] = $this->validate_file('valid-id');
 		$data['exit-form'] = $this->validate_file('exit-form');
 
 		if($this->form_validation->run()){
@@ -807,6 +808,7 @@ class Student extends MY_Controller
 			$upload_reg_form = $this->media_upload($directory, 'reg-form');
 			$upload_exit_form = $this->media_upload($directory, 'exit-form');
 			$upload_q_form = $this->media_upload($directory, 'exit-questionnaire');
+			$valid_id = $this->media_upload($directory, 'valid-id');
 			$time_arr = explode(' ', $time);
 			$time_format = date('H:i:s', strtotime($time_arr[0].' '.$time_arr[1]));
 			$date = $this->input->post('date').' '.$time_format;
@@ -831,7 +833,8 @@ class Student extends MY_Controller
 					'certificate_of_completion' => $upload_coc_form['file_name'],
 					'registration_form' => $upload_reg_form['file_name'],
 					'exit_questionnaire' => $upload_q_form['file_name'],
-					'exit_form' => $upload_exit_form['file_name']
+					'exit_form' => $upload_exit_form['file_name'],
+					'valid_id' => $valid_id['file_name']
 				);
 				$this->model->store_appointment($form_data);	
 				$output = '{"status": true}';

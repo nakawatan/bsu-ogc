@@ -19,6 +19,11 @@
                         <div class="label"><strong>Exit Questionnaire : </strong></div>
                         <label class="btn-attach exit-questionnaire" for="exit-questionnaire" title="Attach file here"></label>
                     </div>
+
+                    <div class="form-group valid-id-group">
+                        <div class="label"><strong>Valid ID of Parent/Guardian : </strong></div>
+                        <label class="btn-attach valid-id" for="valid-id" title="Attach file here"></label>
+                    </div>
                     <div class="form-group registration-form-group">
                         <div class="label"><strong>Registration Form : </strong></div>
                         <label class="btn-attach registration-form" for="registration-form" title="Attach file here"></label>
@@ -112,6 +117,7 @@
 
                 $('.exit-form-group').hide();
                 $('.exit-questionnaire-group').hide();
+                $('.valid-id-group').hide();
                 $('.registration-form-group').hide();
                 $('.coc-form-group').hide();
 
@@ -128,6 +134,11 @@
                 if (info.event.extendedProps.exit_questionnaire != "") {
                     $('.exit-questionnaire-group').show();
                     $(".exit-questionnaire").text(info.event.extendedProps.exit_questionnaire);
+                }
+
+                if (info.event.extendedProps.valid_id != "") {
+                    $('.valid-id-group').show();
+                    $(".valid-id").text(info.event.extendedProps.valid_id);
                 }
 
                 if (info.event.extendedProps.registration_form != "") {
@@ -148,6 +159,11 @@
                 $('.exit-questionnaire').unbind('click').on('click',function(){
                     $('.view-file-modal').fadeIn(300);
                     $('.view-file-modal iframe').attr('src',info.event.extendedProps.exit_questionnaire_url);
+                });
+
+                $('.valid-id').unbind('click').on('click',function(){
+                    $('.view-file-modal').fadeIn(300);
+                    $('.view-file-modal iframe').attr('src',info.event.extendedProps.valid_id_url);
                 });
 
                 $('.registration-form').unbind('click').on('click',function(){
@@ -249,6 +265,11 @@
                     $(".coc-form").text(info.extendedProps.certificate_of_completion);
                 }
 
+                if (info.extendedProps.valid_id != "") {
+                    $('.valid-id-group').show();
+                    $(".valid-id").text(info.extendedProps.valid_id);
+                }
+
                 $('.exit-form').unbind('click').on('click',function(){
                     $('.view-file-modal').fadeIn(300);
                     $('.view-file-modal iframe').attr('src',info.extendedProps.exit_form_url);
@@ -262,6 +283,11 @@
                 $('.registration-form').unbind('click').on('click',function(){
                     $('.view-file-modal').fadeIn(300);
                     $('.view-file-modal iframe').attr('src',info.extendedProps.registration_form_url);
+                });
+
+                $('.valid-id').unbind('click').on('click',function(){
+                    $('.view-file-modal').fadeIn(300);
+                    $('.view-file-modal iframe').attr('src',info.extendedProps.valid_id_url);
                 });
 
                 $('.coc-form').unbind('click').on('click',function(){
