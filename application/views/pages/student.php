@@ -84,6 +84,10 @@ $disable_month = $disable_month ? $disable_month : ['empty_array'];
 											<?php if($ojt_career_advising_status == 'approved') :?><div class="approved txt-green"><i class="fas fa-check"></i></div><?php endif; ?>
 											<?php if($ojt_career_advising_status == 'reject') :?><div class="approved txt-red"><i class="fas fa-times"></i></div><?php endif; ?>
 										</div>
+
+										<!-- CHECKMARK
+											<p>By uploading the files, I hereby give my consent and authorization to use the files I have provided. Further, I allow the concerned office to view and evaluate my personal information.</p>
+									    -->
 										<div class="form-group text-right">
 										<?php 
 											if( !$request_cgmc_ojt 

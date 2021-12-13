@@ -13,7 +13,7 @@ $tabs_param = $this->input->get('tab');
         <img src="<?= ASSETS ?>images/Official_Seal_of_Batangas_State_University.png" alt="">
         <div>
             <h2>Office of Guidance and Counseling</h2>
-            <span>Batangas State University, Alangilan Campus</span>
+            <span>Batangas State University - Alangilan</span>
         </div>
     </div>
 	<?php $this->view('templates/banner'); ?>
