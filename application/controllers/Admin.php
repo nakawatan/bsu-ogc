@@ -472,13 +472,17 @@ class Admin extends MY_Controller
         parent::view('admin/appointments', $data);
     }
 
-    public function report($month=null)
+    public function report($month=null, $year=null)
     {
         if (!isset($month)){
            $month = date('m'); 
         }
 
-        $year = date("Y");
+        if (!isset($year)){
+            $year = date("Y");
+        }
+
+        
         
         $data['cgmc_ojt_pending'] = $this->model->get_generic_successful_report('request_cgmc_ojt',$month,$year);
         $data['cgmc_ja_pending'] = $this->model->get_generic_successful_report('request_cgmc_job_application',$month,$year);

@@ -23,7 +23,7 @@
     <div class="table-wrap">
 
         <div>
-            <label>Select Month </label>
+            <label>Select Month : </label>
             <select class="select-month-report">
                 <option value="">Select Month</option>
                 <option value="1">January</option>
@@ -39,6 +39,8 @@
                 <option value="11">November</option>
                 <option value="12">December</option>
             </select>
+            <label>Year : </label>
+            <input type="number" class="filter-year"/>
             <button class="btn btn-green btn-filter-report" type="button">Filter</button>
         </div>
         <div class="my-div">
@@ -92,7 +94,8 @@
 
 <script>
     var url_parts = location.pathname.split("/");
-    if (url_parts.length == 4 && !isNaN(url_parts[3])){
-        document.getElementsByClassName("select-month-report")[0].value = url_parts[3];
+    if (url_parts.length == 5 && !isNaN(url_parts[3]) && !isNaN(url_parts[4])){
+    document.getElementsByClassName("select-month-report")[0].value = url_parts[3]; 
+    document.getElementsByClassName("filter-year")[0].value = url_parts[4]; 
     }
 </script>
